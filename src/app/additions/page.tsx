@@ -33,7 +33,7 @@ export default async function AdditionsPage() {
                         />
                     </div>
                 </div>
-                <ServiceImages items={data} alt="дополнения" />
+                <ServiceImages items={data} alt="дополнения" path="additions" />
             </div>
             <HowToConnect />
         </main>

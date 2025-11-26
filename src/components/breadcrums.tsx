@@ -1,6 +1,14 @@
 import Link from 'next/link';
 
-export default function BreadCrumbs({ pageTitle }: { pageTitle: string }) {
+export default function BreadCrumbs({
+    pageTitle,
+    pagePath,
+    isLink = false,
+}: {
+    pageTitle: string;
+    pagePath?: string;
+    isLink?: boolean;
+}) {
     return (
         <section className="py-5 lg:py-[30px] bg-grey-light">
             <ol className="flex flex-wrap text-xs leading-4 text-green md:text-lg lg:text-xl lg:leading-5">
@@ -10,9 +18,18 @@ export default function BreadCrumbs({ pageTitle }: { pageTitle: string }) {
                     </Link>
                 </li>
                 <li>
-                    <span className="opacity-[0.75] before:mx-3 before:inline-block before:content-['/']">
-                        {pageTitle}
-                    </span>
+                    {isLink ? (
+                        <Link
+                            href={`/${pagePath}`}
+                            className="opacity-[0.75] before:mx-3 before:inline-block before:content-['/']"
+                        >
+                            {pageTitle}
+                        </Link>
+                    ) : (
+                        <span className="opacity-[0.75] before:mx-3 before:inline-block before:content-['/']">
+                            {pageTitle}
+                        </span>
+                    )}
                 </li>
             </ol>
         </section>

@@ -32,7 +32,7 @@ export default async function MastersPage() {
                         />
                     </div>
                 </div>
-                <ServiceImages items={data} alt="master-class" />
+                <ServiceImages items={data} alt="master-class" path="masters" />
             </div>
             <HowToConnect />
         </main>

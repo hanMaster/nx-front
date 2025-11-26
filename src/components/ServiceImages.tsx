@@ -1,18 +1,22 @@
 import Image from 'next/image';
 import { Service } from '@/app/data/services';
+import Link from 'next/link';
 
 export default function ServiceImages({
     items,
     alt,
+    path,
 }: {
     items: Service[];
     alt: string;
+    path: string;
 }) {
     return (
         <div className="gallery-images">
             {items &&
                 items.map((item) => (
-                    <div
+                    <Link
+                        href={`/${path}/${item.id}`}
                         key={item.id}
                         className="show relative cursor-pointer image-wrapper"
                     >
@@ -36,7 +40,7 @@ export default function ServiceImages({
                                 </span>
                             )}
                         </div>
-                    </div>
+                    </Link>
                 ))}
         </div>
     );

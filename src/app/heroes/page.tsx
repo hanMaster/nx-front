@@ -70,7 +70,7 @@ export default async function HeroesPage() {
                         />
                     </div>
                 </div>
-                <ServiceImages items={data} alt="hero" />
+                <ServiceImages items={data} alt="hero" path="heroes" />
             </div>
             <HowToConnect />
         </main>

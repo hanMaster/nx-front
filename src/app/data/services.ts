@@ -60,3 +60,10 @@ export async function getAdditions() {
     }
     return services.filter(s => s.showType === ADDITIONS);
 }
+
+export async function getServiceById(id: string) {
+    if (!services) {
+        services = await fetchServices();
+    }
+    return services.find(s => s.id === Number(id));
+}

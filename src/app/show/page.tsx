@@ -36,7 +36,7 @@ export default async function ShowPage() {
                         />
                     </div>
                 </div>
-                <ServiceImages items={data} alt="show" />
+                <ServiceImages items={data} alt="show" path="show" />
             </div>
             <HowToConnect />
         </main>
