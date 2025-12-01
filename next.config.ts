@@ -4,6 +4,9 @@ import createMDX from '@next/mdx';
 const nextConfig: NextConfig = {
   // Configure `pageExtensions` to include markdown and MDX files
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  images: {
+    remotePatterns: [new URL('https://102922.selcdn.ru/ecomm/harakter/**')],
+  },
 };
 
 const withMDX = createMDX({
