@@ -11,6 +11,39 @@ export interface SliderImage {
 
 let sliderImages: SliderImage[] = [];
 let razvivalochkaImages: SliderImage[] = [];
+let club: SliderImage[] = [];
+let studio: SliderImage[] = [];
+
+const fetchGallery = async () => {
+    try {
+        const response = await fetch(`${baseUrl}gallery-images`);
+        const data = await response.json();
+        club = data.club;
+        studio = data.studio;
+    } catch (error) {
+        console.error('[galleryStore] error:', error);
+    }
+};
+
+export const getClubImages = async () => {
+    if (club.length > 0) {
+        return club;
+    }
+
+    await fetchGallery();
+    return club;
+
+};
+
+export const getStudioImages = async () => {
+    if (studio.length > 0) {
+        return studio;
+    }
+
+    await fetchGallery();
+    return studio;
+
+};
 
 export const getMainSliderImages = async () => {
     if (sliderImages.length > 0) {

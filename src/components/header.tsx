@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { Navigation } from './navigation';
-import { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import Image from "next/image";
+import { Navigation } from "./navigation";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
