@@ -147,7 +147,7 @@ section {
 }
 
 .tag {
-    @apply border rounded-[40px] py-[17px] px-10 cursor-pointer hover:border-brown transition-colors duration-150 ease-in-out font-cormorant font-semibold text-2xl text-brown bg-[rgba(255,255,255,0.45)];
+    @apply border border-transparent rounded-[40px] py-[17px] px-10 cursor-pointer hover:border-brown transition-colors duration-150 ease-in-out font-cormorant font-semibold text-2xl text-brown bg-[rgba(255,255,255,0.45)];
 }
 
 .active-tag {
