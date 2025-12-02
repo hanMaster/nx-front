@@ -211,7 +211,7 @@ section {
 }
 
 .item-detailed-card {
-    @apply flex flex-col md:flex-row md:bg-[rgba(255,255,255,0.45)] max-w-[1080px] mx-auto px-5 py-10 md:p-10 lg:p-[93px] gap-5 lg:gap-[93px] md:rounded-tl-[100px] md:rounded-br-[100px] lg:rounded-tl-[150px] lg:rounded-br-[150px] md:border md:border-[rgba(92,112,78,0.25)] text-green text-sm md:text-xl items-stretch;
+    @apply font-manege flex flex-col md:flex-row md:bg-[rgba(255,255,255,0.45)] max-w-[1080px] mx-auto px-5 py-10 md:p-10 lg:p-[93px] gap-5 lg:gap-[93px] md:rounded-tl-[100px] md:rounded-br-[100px] lg:rounded-tl-[150px] lg:rounded-br-[150px] md:border md:border-[rgba(92,112,78,0.25)] text-green text-sm md:text-xl items-stretch;
 }
 
 .gallery-button {

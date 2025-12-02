@@ -10,12 +10,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-export default async function CategoryPage(props: PageProps<'/menu/[id]'>) {
-    const { id } = await props.params;
-    const category = await getCategoryById(+id);
+export default async function CategoryPage(
+    props: PageProps<'/menu/[categoryId]'>
+) {
+    const { categoryId } = await props.params;
+    const category = await getCategoryById(+categoryId);
     const categories = await getCategories();
 
-    const items = await getItemsByCategory(+id);
+    const items = await getItemsByCategory(+categoryId);
 
     if (!category) {
         return notFound();
@@ -48,7 +50,10 @@ export default async function CategoryPage(props: PageProps<'/menu/[id]'>) {
                 </section>
             </div>
 
-            <CategoryChanger categories={categories} activeCategoryId={+id} />
+            <CategoryChanger
+                categories={categories}
+                activeCategoryId={+categoryId}
+            />
 
             <div className="flex flex-wrap">
                 {items &&
@@ -57,7 +62,10 @@ export default async function CategoryPage(props: PageProps<'/menu/[id]'>) {
                             key={item.id}
                             className="block w-full md:w-1/2 lg:w-1/3 2xl:w-1/5 py-3 px-2 md:p-3"
                         >
-                            <div className="category-item-card">
+                            <Link
+                                href={`/menu/${categoryId}/${item.id}`}
+                                className="category-item-card"
+                            >
                                 <Image
                                     width={406}
                                     height={350}
@@ -76,7 +84,7 @@ export default async function CategoryPage(props: PageProps<'/menu/[id]'>) {
                                 <div className="flex items-center gap-[30px]">
                                     <CartButton />
                                 </div>
-                            </div>
+                            </Link>
                         </div>
                     ))}
             </div>
