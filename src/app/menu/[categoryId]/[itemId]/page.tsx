@@ -71,14 +71,16 @@ export default async function ItemPage(
                                 Вес: {item.portionWeightGrams} г
                             </p>
                             <table className="text">
-                                <tr>
-                                    <td>Калории: {item.energy}</td>
-                                    <td>Белки: {item.proteins}</td>
-                                </tr>
-                                <tr>
-                                    <td>Жиры: {item.fats}</td>
-                                    <td>Углеводы: {item.carbs}</td>
-                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <td>Калории: {item.energy}</td>
+                                        <td>Белки: {item.proteins}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Жиры: {item.fats}</td>
+                                        <td>Углеводы: {item.carbs}</td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                         <div className="flex flex-col md:w-[50%] justify-between text-center md:text-left">

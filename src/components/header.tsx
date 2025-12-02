@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { Navigation } from "./navigation";
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import Image from 'next/image';
+import { Navigation } from './navigation';
+import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,7 +19,7 @@ export function Header() {
     }, [pathname]);
 
     return (
-        <div className="w-full z-999 fixed">
+        <div className="w-full z-999 fixed top-0">
             <header className="relative border-b border-[rgba(92,112,78,0.25)] px-2 box-border bg-lightbrown">
                 <nav className="max-w-[1560px] mx-auto">
                     <div className="flex items-center gap-x-2.5 py-3 justify-between">
