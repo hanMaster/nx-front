@@ -2,26 +2,15 @@ import HowToConnect from '@/components/how-to-connect';
 import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote-client/rsc';
 import { getMem } from '../data/mem';
+import BreadCrumbs from '@/components/breadcrums';
 
 export default async function MemPage() {
     const markdown = await getMem();
 
     return (
         <main className="md:container md:mx-auto pt-[85px]">
-            <section className="py-5 lg:py-[30px] bg-grey-light m-0">
-                <ol className="flex flex-wrap text-xs leading-4 text-green md:text-lg lg:text-xl lg:leading-5">
-                    <li>
-                        <Link className="opacity-[0.75]" href="/">
-                            Главная
-                        </Link>
-                    </li>
-                    <li>
-                        <span className="opacity-[0.75] before:mx-3 before:inline-block before:content-['/']">
-                            Памятка
-                        </span>
-                    </li>
-                </ol>
-            </section>
+            <BreadCrumbs pageTitle="Памятка" />
+
             <section className="flex flex-col gap-3 mt-5 lg:mt-[60px] px-8">
                 <h2 className="subtitle2">
                     Памятка визита в Давай поиграем и Характер

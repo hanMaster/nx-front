@@ -2,6 +2,7 @@ import BreadCrumbs from '@/components/breadcrums';
 import HowToConnect from '@/components/how-to-connect';
 import Image from 'next/image';
 import { getClubImages } from '../data/gallery';
+import ChooseHall from '@/components/ChooseHall';
 
 export default async function DavaiPoigraemPage() {
     const images = await getClubImages();
@@ -72,14 +73,10 @@ export default async function DavaiPoigraemPage() {
                 <p className="text-sm text-center mb-5">
                     В перерывах производится уборка в зале
                 </p>
-                <div className="centered-buttons">
-                    <button className="custom__btn border border-brown">
-                        Выбрать этот зал
-                    </button>
-                </div>
+                <ChooseHall hallId={1} />
             </section>
 
-            <section className="lg:p-0" v-else>
+            <section className="lg:p-0">
                 <h2 className="subtitle2 mb-4">
                     Фото клуба &quot;Давай поиграем&quot;
                 </h2>

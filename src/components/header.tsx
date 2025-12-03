@@ -4,10 +4,13 @@ import Image from 'next/image';
 import { Navigation } from './navigation';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import { useCart } from '@/providers/CartProvider';
 
 export function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname();
+    const { food } = useCart();
 
     const resetMenu = () => {
         setIsMenuOpen(false);
@@ -55,7 +58,10 @@ export function Header() {
                         </button>
                         <Navigation isMobile={false} />
 
-                        <div className="flex items-center gap-x-[34px] justify-between">
+                        <Link
+                            href="/cart"
+                            className="flex items-center gap-x-[34px] justify-between"
+                        >
                             <button className="relative flex h-12 min-w-12 items-center justify-center rounded-full bg-brown md:mr-[30px] cursor-pointer">
                                 <Image
                                     width={18}
@@ -64,10 +70,10 @@ export function Header() {
                                     alt="Корзина"
                                 />
                                 <span className="absolute bottom-[-3px] right-[-3px] flex h-[23px] w-[23px] items-center justify-center rounded-[50%] bg-green text-xs font-medium leading-4 text-white">
-                                    12
+                                    {food.length}
                                 </span>
                             </button>
-                        </div>
+                        </Link>
                     </div>
                     {isMenuOpen && <Navigation isMobile={true} />}
                 </nav>

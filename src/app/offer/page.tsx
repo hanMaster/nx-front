@@ -1,6 +1,9 @@
+import BreadCrumbs from '@/components/breadcrums';
+
 export default function OfferPage() {
     return (
         <main className="md:container md:mx-auto pt-[85px]">
+            <BreadCrumbs pageTitle="Оферта" />
             <section className="py-5 px-3 lg:py-[30px] bg-grey-light m-0">
                 <h2 className="subtitle2">ДОГОВОР ПУБЛИЧНОЙ ОФЕРТЫ</h2>
                 <h2 className="subtitle text-center">

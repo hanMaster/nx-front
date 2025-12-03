@@ -1,23 +1,11 @@
+import BreadCrumbs from '@/components/breadcrums';
 import SliderRazvivalochka from '@/components/slider-razvivalochka';
-import Link from 'next/link';
 
 export default function Razvivalochkanhk() {
     return (
         <main className="md:container md:mx-auto pt-[85px]">
-            <section className="py-5 lg:py-[30px] bg-grey-light m-0">
-                <ol className="flex flex-wrap text-xs leading-4 text-green md:text-lg lg:text-xl lg:leading-5">
-                    <li>
-                        <Link className="opacity-[0.75]" href="/">
-                            Главная
-                        </Link>
-                    </li>
-                    <li>
-                        <span className="opacity-[0.75] before:mx-3 before:inline-block before:content-['/']">
-                            Развивалочкаnhk
-                        </span>
-                    </li>
-                </ol>
-            </section>
+            <BreadCrumbs pageTitle="Развивалочкаnhk" />
+
             <section className="flex flex-col gap-5 mt-5 lg:mt-[60px] px-8 text-xl">
                 <h1 className="subtitle2">
                     Студия раннего развития &quot;Развивалочкаnhk&quot;

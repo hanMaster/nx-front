@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
+import { Toaster } from 'sonner';
 import { avenir, cormorant_infant, manege, tenor_sans } from '@/fonts';
 import { Footer } from '@/components/footer';
 import { Header } from '@/components/header';
+import CartProvider from '@/providers/CartProvider';
 import './globals.css';
-import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
     title: 'Детский клуб Давай поиграем',
@@ -20,10 +21,12 @@ export default function RootLayout({
             <body
                 className={`${avenir.variable} ${manege.variable} ${cormorant_infant.variable} ${tenor_sans.variable} antialiased bg-lightbrown`}
             >
-                <Header />
-                <Toaster position="top-center" />
-                {children}
-                <Footer />
+                <CartProvider>
+                    <Header />
+                    <Toaster position="top-center" />
+                    {children}
+                    <Footer />
+                </CartProvider>
             </body>
         </html>
     );

@@ -1,23 +1,11 @@
+import BreadCrumbs from '@/components/breadcrums';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function NewYear() {
     return (
         <main className="md:container md:mx-auto pt-[85px]">
-            <section className="py-5 lg:py-[30px] bg-grey-light m-0">
-                <ol className="flex flex-wrap text-xs leading-4 text-green md:text-lg lg:text-xl lg:leading-5">
-                    <li>
-                        <Link className="opacity-[0.75]" href="/">
-                            Главная
-                        </Link>
-                    </li>
-                    <li>
-                        <span className="before:mx-3 before:inline-block before:content-['/']">
-                            Новый год 🎄
-                        </span>
-                    </li>
-                </ol>
-            </section>
+            <BreadCrumbs pageTitle="Новый год 🎄" />
             <h2 className="subtitle2">НОВЫЙ ГОД в Давай поиграем</h2>
             <section
                 id="main"

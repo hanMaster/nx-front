@@ -233,3 +233,11 @@ section {
 .cart-nav-buttons {
     @apply flex flex-row lg:justify-center justify-between text-center text-green lg:mb-[27px] lg:text-lg lg:leading-[22px] mb-8 max-w-[256px] mx-auto;
 }
+
+.tab-header {
+    @apply text-center p-2.5 border border-brown bg-brown w-full text-white rounded-t-[20px] md:rounded-t-[40px] cursor-pointer;
+}
+
+.active-tab {
+    @apply text-lightgreen bg-[rgba(255,255,255,0.45)] border-b-0;
+}
