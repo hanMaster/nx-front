@@ -39,10 +39,7 @@ export default function MakeOrderSimple() {
                         >
                             Вступить в группу WhatsApp
                         </a>
-                        <div
-                            className="flex lg:ml-12 xl:ml-0 xl:mr-[30px] xl:w-full xl:justify-end"
-                            v-if="!props.withoutButtons"
-                        >
+                        <div className="flex lg:ml-12 xl:ml-0 xl:mr-[30px] xl:w-full xl:justify-end">
                             <Link href="/cart" className="custom__block">
                                 Заказать праздник
                             </Link>

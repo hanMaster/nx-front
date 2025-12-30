@@ -62,8 +62,46 @@ export const useCart = () => {
 };
 
 export default function CartProvider({ children }: { children: ReactNode }) {
-    const [order, setOrder] = useState<Order>(emptyOrder);
+    // Инициализация корзины из localStorage
+    const [order, setOrder] = useState<Order>(() => {
+        if (typeof window === 'undefined') return emptyOrder;
+
+        try {
+            const savedCart = localStorage.getItem('kharakter-cart');
+            if (savedCart) {
+                const parsed = JSON.parse(savedCart);
+                // Валидация структуры данных
+                if (parsed && typeof parsed === 'object' &&
+                    parsed.anketa && Array.isArray(parsed.halls) &&
+                    Array.isArray(parsed.show) && Array.isArray(parsed.food)) {
+                    return parsed;
+                }
+            }
+        } catch (error) {
+            console.error('Ошибка загрузки корзины из localStorage:', error);
+            localStorage.removeItem('kharakter-cart');
+        }
+
+        return emptyOrder;
+    });
+
     const [activeTab, setActiveTabState] = useState(1);
+
+    // Сохранение корзины в localStorage при изменении
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+
+        try {
+            localStorage.setItem('kharakter-cart', JSON.stringify(order));
+        } catch (error) {
+            console.error('Ошибка сохранения корзины в localStorage:', error);
+            // Если localStorage переполнен, очищаем старые данные
+            if (error instanceof DOMException && error.name === 'QuotaExceededError') {
+                localStorage.removeItem('kharakter-cart');
+                toast.error('Корзина слишком большая, данные не сохранены');
+            }
+        }
+    }, [order]);
 
     // Helper functions
     const isNightOrdered = useCallback(() => {

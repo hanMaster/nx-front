@@ -5,6 +5,34 @@ import MakeOrderSimple from '@/components/make-order-simple';
 import CategoryChanger from '@/components/CategoryChanger';
 import CartButton from '@/components/cart/CartButton';
 import Image from 'next/image';
+import type { Metadata } from 'next';
+
+export async function generateMetadata(
+    props: PageProps<'/menu/[categoryId]/[itemId]'>
+): Promise<Metadata> {
+    const { categoryId, itemId } = await props.params;
+    const category = await getCategoryById(+categoryId);
+    const item = await getItemById(+itemId);
+
+    if (!category || !item) {
+        return {
+            title: 'Товар не найден',
+        };
+    }
+
+    return {
+        title: item.title,
+        description: item.description || `${item.title} из категории ${category.title} для детского праздника в Находке. Цена: ${item.price} руб.`,
+        alternates: {
+            canonical: `https://kharakter.ru/menu/${categoryId}/${itemId}`,
+        },
+        openGraph: {
+            title: `${item.title} - ${category.title}`,
+            description: item.description || `${item.title} для детского праздника в Находке`,
+            images: [item.imageJpg],
+        },
+    };
+}
 
 export default async function ItemPage(
     props: PageProps<'/menu/[categoryId]/[itemId]'>

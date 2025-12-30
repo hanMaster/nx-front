@@ -26,6 +26,9 @@ export async function generateMetadata(
     return {
         title: category.title,
         description: `Заказать ${category.title.toLowerCase()} для детского праздника в Находке. Доставка кейтеринга в студии Давай поиграем и Характер.`,
+        alternates: {
+            canonical: `https://kharakter.ru/menu/${categoryId}`,
+        },
         openGraph: {
             title: `${category.title} - Меню`,
             description: `Заказать ${category.title.toLowerCase()} для детского праздника в Находке`,

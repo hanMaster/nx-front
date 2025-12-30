@@ -22,6 +22,9 @@ export async function generateMetadata(
         description:
             service.description.slice(0, 155) ||
             `${service.title} - герои и аниматоры для детского праздника в Находке. Цена: ${service.price} руб.`,
+        alternates: {
+            canonical: `https://kharakter.ru/heroes/${id}`,
+        },
         openGraph: {
             title: `${service.title} - Герои и программы`,
             description: service.description.slice(0, 200),
