@@ -54,6 +54,7 @@ export default function Home() {
                                 src="/img/davai_poigraem.png"
                                 alt="Davai poigraem"
                                 className="h-[275px] lg:h-[439px] xl:h-[539px] w-full object-cover first-left-image"
+                                style={{ width: 'auto' }}
                             />
                         </Link>
                         <div className="md:flex absolute bottom-3 md:bottom-5 right-3 md:right-5">
@@ -82,6 +83,7 @@ export default function Home() {
                                 src="/img/kharacter-big.jpeg"
                                 className="h-[275px] lg:h-[439px] xl:h-[539px] w-full object-cover first-right-image"
                                 alt="Kharacter"
+                                style={{ width: 'auto' }}
                             />
                         </Link>
                         <div className="md:flex absolute bottom-3 md:bottom-5 right-3 md:left-5">

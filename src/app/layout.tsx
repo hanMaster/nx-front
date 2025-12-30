@@ -20,6 +20,7 @@ export default function RootLayout({
         <html lang="ru">
             <body
                 className={`${avenir.variable} ${manege.variable} ${cormorant_infant.variable} ${tenor_sans.variable} antialiased bg-lightbrown`}
+                suppressHydrationWarning
             >
                 <CartProvider>
                     <Header />
