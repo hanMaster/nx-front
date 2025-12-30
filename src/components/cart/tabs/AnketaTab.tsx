@@ -8,7 +8,9 @@ export default function AnketaTab() {
 
     return (
         <div className="p-[30px] bg-[rgba(255,255,255,0.45)] md:rounded-b-[40px]">
-            <h2 className="text-3xl text-center mb-4">Ответьте пожалуйста на вопросы анкеты</h2>
+            <h2 className="text-3xl text-center mb-4">
+                Ответьте пожалуйста на вопросы анкеты
+            </h2>
             <div className="form-group w-full">
                 <label htmlFor="q1">Ваше Имя</label>
                 <input
@@ -40,7 +42,8 @@ export default function AnketaTab() {
                 />
             </div>
             <p className="text-red-400">
-                Если количество гостей превысит 20 человек, в счет добавится услуга дополнительного администратора
+                Если количество гостей превысит 20 человек, в счет добавится
+                услуга дополнительного администратора
             </p>
             <div className="form-group w-full">
                 <label htmlFor="q4">Количество приглашенных детей</label>
@@ -66,13 +69,13 @@ export default function AnketaTab() {
             </div>
             <div className="cart-nav-buttons">
                 <button
-                    className="btn-prev border-[1px] border-brown disabled:border-[0] disabled:bg-transparent"
+                    className="btn-prev border border-brown disabled:border-0 disabled:bg-transparent"
                     onClick={() => setActiveTab(1)}
                 >
                     Назад
                 </button>
                 <button
-                    className="btn-next border-[1px] border-brown disabled:border-[0] disabled:bg-transparent"
+                    className="btn-next border border-brown disabled:border-0 disabled:bg-transparent"
                     disabled={anketaInvalid()}
                     onClick={() => setActiveTab(3)}
                 >

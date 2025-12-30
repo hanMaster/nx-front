@@ -8,7 +8,10 @@ import Image from 'next/image';
 export default function FoodTab() {
     const { order, removeFromCart, setActiveTab, anketaInvalid } = useCart();
 
-    const total = order.food.reduce((acc, item) => acc + item.price * item.count, 0);
+    const total = order.food.reduce(
+        (acc, item) => acc + item.price * item.count,
+        0
+    );
 
     return (
         <div className="p-[30px] bg-[rgba(255,255,255,0.45)] md:rounded-b-[40px]">
@@ -17,7 +20,7 @@ export default function FoodTab() {
                     {order.food.map((i) => (
                         <div
                             key={i.id}
-                            className="border-b-[1px] border-[rgba(92,112,78,0.25)] flex gap-[14px] md:gap-[24px] py-[20px] md:px-5 md:py-[30px]"
+                            className="border-b border-[rgba(92,112,78,0.25)] flex gap-3.5 md:gap-6 py-5 md:px-5 md:py-[30px]"
                         >
                             <Image
                                 src={i.imageWebp}
@@ -37,13 +40,29 @@ export default function FoodTab() {
                                     className="absolute top-1 right-1 cursor-pointer hover:stroke-red-500"
                                     onClick={() => removeFromCart(i)}
                                 >
-                                    <line x1="1.35355" y1="0.646447" x2="17.0944" y2="16.3873" />
-                                    <line x1="0.646447" y1="16.6464" x2="16.3873" y2="0.905635" />
+                                    <line
+                                        x1="1.35355"
+                                        y1="0.646447"
+                                        x2="17.0944"
+                                        y2="16.3873"
+                                    />
+                                    <line
+                                        x1="0.646447"
+                                        y1="16.6464"
+                                        x2="16.3873"
+                                        y2="0.905635"
+                                    />
                                 </svg>
 
-                                <h2 className="font-['ManegeDemo'] text-lg font-light md:text-4xl">{i.title}</h2>
+                                <h2 className="font-['ManegeDemo'] text-lg font-light md:text-4xl">
+                                    {i.title}
+                                </h2>
                                 <div className="flex gap-1 md:gap-[60px] items-center">
-                                    <CountAdjust count={i.count} id={i.id} className="max-w-[100px] md:max-w-[200px]" />
+                                    <CountAdjust
+                                        count={i.count}
+                                        id={i.id}
+                                        className="max-w-[100px] md:max-w-[200px]"
+                                    />
                                     <p className="font-[750] text-sm md:text-xl font-['AvenirNextCyr']">
                                         {i.price * i.count} руб.
                                     </p>
@@ -60,19 +79,19 @@ export default function FoodTab() {
                 </h2>
             )}
             <div className="centered-buttons mt-6">
-                <Link href="/menu" className="custom__btn border-[1px] border-brown">
+                <Link href="/menu" className="custom__btn border border-brown">
                     В меню
                 </Link>
             </div>
             <div className="cart-nav-buttons">
                 <button
-                    className="btn-prev border-[1px] border-brown disabled:border-[0] disabled:bg-transparent"
+                    className="btn-prev border border-brown disabled:border-0 disabled:bg-transparent"
                     onClick={() => setActiveTab(3)}
                 >
                     Назад
                 </button>
                 <button
-                    className="btn-next border-[1px] border-brown disabled:border-[0] disabled:bg-transparent"
+                    className="btn-next border border-brown disabled:border-0 disabled:bg-transparent"
                     onClick={() => setActiveTab(5)}
                     disabled={anketaInvalid()}
                 >

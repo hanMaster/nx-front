@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useCart } from '@/providers/CartProvider';
-import { Hall } from '@/providers/types';
+import { useCart } from "@/providers/CartProvider";
+import { Hall } from "@/providers/types";
 
 interface DurationAdjustProps {
     hall: Hall;
@@ -29,9 +29,13 @@ export default function DurationAdjust({ hall }: DurationAdjustProps) {
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="black"
-                    className="w-[20px]"
+                    className="w-5"
                 >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15" />
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 12h-15"
+                    />
                 </svg>
             </span>
             <span className="py-[5px] md:py-[18px] select-none text-green">
@@ -50,9 +54,13 @@ export default function DurationAdjust({ hall }: DurationAdjustProps) {
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
-                    className="w-[20px]"
+                    className="w-5"
                 >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 4.5v15m7.5-7.5h-15"
+                    />
                 </svg>
             </span>
         </div>

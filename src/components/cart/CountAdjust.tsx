@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useCart } from '@/providers/CartProvider';
+import { useCart } from "@/providers/CartProvider";
 
 interface CountAdjustProps {
     id: number;
@@ -8,11 +8,17 @@ interface CountAdjustProps {
     className?: string;
 }
 
-export default function CountAdjust({ id, count, className = '' }: CountAdjustProps) {
+export default function CountAdjust({
+    id,
+    count,
+    className = "",
+}: CountAdjustProps) {
     const { increase, decrease } = useCart();
 
     return (
-        <div className={`border border-[rgba(109,94,60,0.45)] flex gap-1 rounded-[40px] w-full justify-between ${className}`}>
+        <div
+            className={`border border-[rgba(109,94,60,0.45)] flex gap-1 rounded-[40px] w-full justify-between ${className}`}
+        >
             <span
                 className="count-adjust-button"
                 onClick={(e) => {
@@ -26,12 +32,18 @@ export default function CountAdjust({ id, count, className = '' }: CountAdjustPr
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="black"
-                    className="w-[20px]"
+                    className="w-5"
                 >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15" />
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 12h-15"
+                    />
                 </svg>
             </span>
-            <span className="py-[5px] md:py-[18px] select-none text-green">{count}</span>
+            <span className="py-[5px] md:py-[18px] select-none text-green">
+                {count}
+            </span>
             <span
                 className="count-adjust-button"
                 onClick={(e) => {
@@ -45,9 +57,13 @@ export default function CountAdjust({ id, count, className = '' }: CountAdjustPr
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
-                    className="w-[20px]"
+                    className="w-5"
                 >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 4.5v15m7.5-7.5h-15"
+                    />
                 </svg>
             </span>
         </div>

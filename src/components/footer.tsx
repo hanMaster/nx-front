@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 export function Footer() {
     return (
@@ -56,7 +56,7 @@ export function Footer() {
                                     width={20}
                                     height={20}
                                     loading="lazy"
-                                />{' '}
+                                />{" "}
                                 @davaypoigraem_nhk
                             </a>
                         </li>
