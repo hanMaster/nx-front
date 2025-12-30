@@ -69,7 +69,7 @@ src/components/slider-home.tsx - слайдер изображения
 <LocalBusinessSchema
     name="Детские студии Давай поиграем и Характер"
     description="..."
-    url="https://kharakter.ru"
+    url="https://igra-em.ru"
     telephone="+7 (XXX) XXX-XX-XX" // ← Заменить на реальный
     address={{
         streetAddress: "ул. Примерная, д. 1", // ← Заменить на реальный адрес
@@ -102,7 +102,7 @@ export const metadata: Metadata = {
     title: "...",
     description: "...",
     alternates: {
-        canonical: "https://kharakter.ru/current-page",
+        canonical: "https://igra-em.ru/current-page",
     },
 };
 ```
@@ -126,9 +126,9 @@ export default async function CategoryPage(props) {
         <main>
             <BreadcrumbSchema
                 items={[
-                    { name: "Главная", url: "https://kharakter.ru" },
-                    { name: "Меню", url: "https://kharakter.ru/menu" },
-                    { name: category.title, url: `https://kharakter.ru/menu/${categoryId}` },
+                    { name: "Главная", url: "https://igra-em.ru" },
+                    { name: "Меню", url: "https://igra-em.ru/menu" },
+                    { name: category.title, url: `https://igra-em.ru/menu/${categoryId}` },
                 ]}
             />
             {/* остальной контент */}

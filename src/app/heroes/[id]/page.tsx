@@ -24,7 +24,7 @@ export async function generateMetadata(
             service.description.slice(0, 155) ||
             `${service.title} - герои и аниматоры для детского праздника в Находке. Цена: ${service.price} руб.`,
         alternates: {
-            canonical: `https://kharakter.ru/heroes/${id}`,
+            canonical: `https://igra-em.ru/heroes/${id}`,
         },
         openGraph: {
             title: `${service.title} - Герои и программы`,
@@ -59,7 +59,7 @@ export default async function HeroesPage(props: PageProps<"/heroes/[id]">) {
                 provider="Детские студии Давай поиграем и Характер"
                 areaServed="Находка"
                 priceRange={`${service.discountPrice || service.price} руб.`}
-                image={`https://kharakter.ru/${service.mainPicture}`}
+                image={`https://igra-em.ru/${service.mainPicture}`}
             />
         </main>
     );

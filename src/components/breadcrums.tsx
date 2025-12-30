@@ -18,13 +18,13 @@ export default function BreadCrumbs({
     const breadcrumbItems = [
         {
             name: 'Главная',
-            url: 'https://kharakter.ru/',
+            url: 'https://igra-em.ru/',
         },
         {
             name: pageTitle,
             url: isLink && pagePath
-                ? `https://kharakter.ru/${pagePath}`
-                : `https://kharakter.ru/${pagePath || pageTitle.toLowerCase()}`,
+                ? `https://igra-em.ru/${pagePath}`
+                : `https://igra-em.ru/${pagePath || pageTitle.toLowerCase()}`,
         },
     ];
 
@@ -32,7 +32,7 @@ export default function BreadCrumbs({
     if (currentItemTitle && currentItemPath) {
         breadcrumbItems.push({
             name: currentItemTitle,
-            url: `https://kharakter.ru${currentItemPath}`,
+            url: `https://igra-em.ru${currentItemPath}`,
         });
     }
 

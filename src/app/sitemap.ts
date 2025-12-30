@@ -8,7 +8,7 @@ import {
 } from "@/app/data/services";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const baseUrl = "https://kharakter.ru";
+    const baseUrl = "https://igra-em.ru";
 
     // Статические страницы
     const staticPages: MetadataRoute.Sitemap = [

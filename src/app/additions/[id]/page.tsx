@@ -24,7 +24,7 @@ export async function generateMetadata(
             service.description.slice(0, 155) ||
             `${service.title} - дополнение к празднику в Находке. Цена: ${service.price} руб.`,
         alternates: {
-            canonical: `https://kharakter.ru/additions/${id}`,
+            canonical: `https://igra-em.ru/additions/${id}`,
         },
         openGraph: {
             title: `${service.title} - Дополнения к празднику`,
@@ -61,7 +61,7 @@ export default async function AdditionPage(
                 provider="Детские студии Давай поиграем и Характер"
                 areaServed="Находка"
                 priceRange={`${service.discountPrice || service.price} руб.`}
-                image={`https://kharakter.ru/${service.mainPicture}`}
+                image={`https://igra-em.ru/${service.mainPicture}`}
             />
         </main>
     );

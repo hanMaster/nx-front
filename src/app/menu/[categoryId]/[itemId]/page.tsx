@@ -25,7 +25,7 @@ export async function generateMetadata(
         title: item.title,
         description: item.description || `${item.title} из категории ${category.title} для детского праздника в Находке. Цена: ${item.price} руб.`,
         alternates: {
-            canonical: `https://kharakter.ru/menu/${categoryId}/${itemId}`,
+            canonical: `https://igra-em.ru/menu/${categoryId}/${itemId}`,
         },
         openGraph: {
             title: `${item.title} - ${category.title}`,
@@ -53,19 +53,19 @@ export default async function ItemPage(
                 items={[
                     {
                         name: 'Главная',
-                        url: 'https://kharakter.ru/',
+                        url: 'https://igra-em.ru/',
                     },
                     {
                         name: 'Меню',
-                        url: 'https://kharakter.ru/menu',
+                        url: 'https://igra-em.ru/menu',
                     },
                     {
                         name: category.title,
-                        url: `https://kharakter.ru/menu/${category.id}`,
+                        url: `https://igra-em.ru/menu/${category.id}`,
                     },
                     {
                         name: item.title,
-                        url: `https://kharakter.ru/menu/${categoryId}/${itemId}`,
+                        url: `https://igra-em.ru/menu/${categoryId}/${itemId}`,
                     },
                 ]}
             />
@@ -165,7 +165,7 @@ export default async function ItemPage(
             <ProductSchema
                 name={item.title}
                 description={item.description || `${item.title} из категории ${category.title} для детского праздника в Находке`}
-                image={`https://kharakter.ru${item.imageJpg}`}
+                image={`https://igra-em.ru${item.imageJpg}`}
                 price={item.price}
             />
         </main>

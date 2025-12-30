@@ -24,7 +24,7 @@ export async function generateMetadata(
             service.description.slice(0, 155) ||
             `${service.title} - шоу программа для детского праздника в Находке. Цена: ${service.price} руб.`,
         alternates: {
-            canonical: `https://kharakter.ru/show/${id}`,
+            canonical: `https://igra-em.ru/show/${id}`,
         },
         openGraph: {
             title: `${service.title} - Шоу программы`,
@@ -59,7 +59,7 @@ export default async function ShowPage(props: PageProps<"/show/[id]">) {
                 provider="Детские студии Давай поиграем и Характер"
                 areaServed="Находка"
                 priceRange={`${service.discountPrice || service.price} руб.`}
-                image={`https://kharakter.ru/${service.mainPicture}`}
+                image={`https://igra-em.ru/${service.mainPicture}`}
             />
         </main>
     );

@@ -31,13 +31,13 @@ export const metadata: Metadata = {
         title: "Детские студии Давай поиграем и Характер",
         description:
             "Организация незабываемых детских праздников и дней рождения в Находке",
-        url: "https://kharakter.ru",
+        url: "https://igra-em.ru",
         siteName: "Характер",
         locale: "ru_RU",
         type: "website",
     },
     alternates: {
-        canonical: "https://kharakter.ru",
+        canonical: "https://igra-em.ru",
     },
     robots: {
         index: true,
@@ -71,10 +71,10 @@ export default function RootLayout({
                 <LocalBusinessSchema
                     name="Детские студии Давай поиграем и Характер"
                     description="Организация детских праздников, дней рождения, мастер-классов и шоу программ в Находке"
-                    url="https://kharakter.ru"
-                    telephone="+7 (xxx) xxx-xx-xx"
+                    url="https://igra-em.ru"
+                    telephone="+7(914)709-38-88"
                     address={{
-                        streetAddress: "ул. Примерная, д. 1",
+                        streetAddress: "ул. Ленинская, д. 20",
                         addressLocality: "Находка",
                         addressRegion: "Приморский край",
                         postalCode: "692900",

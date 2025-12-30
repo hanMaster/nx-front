@@ -24,7 +24,7 @@ export async function generateMetadata(
             service.description.slice(0, 155) ||
             `${service.title} - мастер-класс для детей в Находке. Цена: ${service.price} руб.`,
         alternates: {
-            canonical: `https://kharakter.ru/masters/${id}`,
+            canonical: `https://igra-em.ru/masters/${id}`,
         },
         openGraph: {
             title: `${service.title} - Мастер-классы`,
@@ -61,7 +61,7 @@ export default async function MasterClassPage(
                 provider="Детские студии Давай поиграем и Характер"
                 areaServed="Находка"
                 priceRange={`${service.discountPrice || service.price} руб.`}
-                image={`https://kharakter.ru/${service.mainPicture}`}
+                image={`https://igra-em.ru/${service.mainPicture}`}
             />
         </main>
     );
