@@ -92,15 +92,16 @@ export default async function DavaiPoigraemPage() {
                     Фото студии &quot;Характер&quot;
                 </h2>
                 <div className="gallery-images">
-                    {images.map((i) => (
+                    {images.map((i, index) => (
                         <div key={i.id}>
                             <Image
                                 key={i.filename}
                                 width={406}
                                 height={350}
                                 src={`/${i.filename}`}
-                                alt={i.filename}
+                                alt={`Интерьер студии вкуса Характер в Находке - банкетный зал для детских праздников, фото ${index + 1}`}
                                 className="rounded-2xl"
+                                loading="lazy"
                             />
                         </div>
                     ))}

@@ -24,8 +24,9 @@ export default async function MenuPage() {
                                     width={406}
                                     height={350}
                                     src={`/${c.imageUrl}`}
-                                    alt={c.title}
+                                    alt={`${c.title} - меню для детского праздника с доставкой в Находке`}
                                     className="rounded-tr-[100px] md:rounded-tr-[50%] rounded-bl-[100px] md:rounded-bl-[50%] w-full flex-1"
+                                    loading="lazy"
                                 />
 
                                 <div className="mt-5 md:mt-[30px]">

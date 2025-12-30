@@ -5,6 +5,11 @@ export default async function SliderRazvivalochka() {
     const images = await getRazvivalochkaImages();
 
     if (images && images?.length) {
-        return <SliderClient images={images} />;
+        return (
+            <SliderClient
+                images={images}
+                altPrefix="Фото развивающих занятий Развивалочкаnhk"
+            />
+        );
     }
 }

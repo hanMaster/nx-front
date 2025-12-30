@@ -32,7 +32,7 @@ export default function Home() {
                     width={365}
                     height={517}
                     src="/img/Oksana.jpg"
-                    alt="Оксана Авдейчик"
+                    alt="Оксана Авдейчик - организатор детских праздников в студиях Давай поиграем и Характер в Находке"
                     className="rounded-[40px]"
                 />
             </section>
@@ -52,9 +52,10 @@ export default function Home() {
                                 width={707}
                                 height={522}
                                 src="/img/davai_poigraem.png"
-                                alt="Davai poigraem"
+                                alt="Детский клуб Давай поиграем - зал для проведения детских праздников и дней рождения в Находке"
                                 className="h-[275px] lg:h-[439px] xl:h-[539px] w-full object-cover first-left-image"
                                 style={{ width: 'auto' }}
+                                priority
                             />
                         </Link>
                         <div className="md:flex absolute bottom-3 md:bottom-5 right-3 md:right-5">
@@ -82,7 +83,7 @@ export default function Home() {
                                 height={539}
                                 src="/img/kharacter-big.jpeg"
                                 className="h-[275px] lg:h-[439px] xl:h-[539px] w-full object-cover first-right-image"
-                                alt="Kharacter"
+                                alt="Студия вкуса Характер - банкетный зал для детских праздников с кейтерингом в Находке"
                                 style={{ width: 'auto' }}
                             />
                         </Link>

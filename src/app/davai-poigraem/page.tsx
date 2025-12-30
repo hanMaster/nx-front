@@ -81,15 +81,16 @@ export default async function DavaiPoigraemPage() {
                     Фото клуба &quot;Давай поиграем&quot;
                 </h2>
                 <div className="gallery-images">
-                    {images.map((i) => (
+                    {images.map((i, index) => (
                         <div key={i.id}>
                             <Image
                                 key={i.filename}
                                 width={406}
                                 height={350}
                                 src={`/${i.filename}`}
-                                alt={i.filename}
+                                alt={`Интерьер детского клуба Давай поиграем в Находке - игровая зона для детских праздников, фото ${index + 1}`}
                                 className="rounded-2xl"
+                                loading="lazy"
                             />
                         </div>
                     ))}

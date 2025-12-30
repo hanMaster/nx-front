@@ -52,7 +52,7 @@ export function Footer() {
                             >
                                 <Image
                                     src="/img/icon-3.png"
-                                    alt=""
+                                    alt="Instagram Давай поиграем"
                                     width={20}
                                     height={20}
                                     loading="lazy"

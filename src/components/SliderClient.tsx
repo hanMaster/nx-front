@@ -7,7 +7,13 @@ import 'swiper/css/autoplay';
 import { SliderImage } from '@/app/data/gallery';
 import Image from 'next/image';
 
-export default function SliderClient({ images }: { images: SliderImage[] }) {
+export default function SliderClient({
+    images,
+    altPrefix = "Фото детских праздников"
+}: {
+    images: SliderImage[];
+    altPrefix?: string;
+}) {
     return (
         <Swiper
             modules={[Autoplay]}
@@ -24,15 +30,16 @@ export default function SliderClient({ images }: { images: SliderImage[] }) {
                 },
             }}
         >
-            {images.map((i) => (
+            {images.map((i, index) => (
                 <SwiperSlide key={i.id}>
                     <Image
                         key={i.filename}
                         width={406}
                         height={350}
                         src={`/${i.filename}`}
-                        alt={i.filename}
+                        alt={`${altPrefix} в студиях Давай поиграем и Характер в Находке - фото ${index + 1}`}
                         className="rounded-2xl"
+                        loading="lazy"
                     />
                 </SwiperSlide>
             ))}

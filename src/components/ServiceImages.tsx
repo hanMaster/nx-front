@@ -24,8 +24,9 @@ export default function ServiceImages({
                             width={406}
                             height={350}
                             src={`/${item.mainPicture}`}
-                            alt={alt}
+                            alt={`${item.title} - ${alt} в Находке, цена ${item.discountPrice || item.price} руб.`}
                             className="rounded-[40px]"
+                            loading="lazy"
                         />
 
                         <div className="absolute bottom-5 left-5 right-5 text-center feast">

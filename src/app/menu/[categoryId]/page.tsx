@@ -92,8 +92,9 @@ export default async function CategoryPage(
                                         width={406}
                                         height={350}
                                         src={item.imageJpg}
-                                        alt={item.title}
+                                        alt={`${item.title} - ${category.title} для детского праздника с доставкой в Находке`}
                                         className="rounded-tr-[50px] rounded-bl-[50px] cursor-pointer"
+                                        loading="lazy"
                                     />
 
                                     <h5 className="menu-item-title text-center text-green flex-1 cursor-pointer">

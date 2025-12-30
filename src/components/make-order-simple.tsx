@@ -53,8 +53,9 @@ export default function MakeOrderSimple() {
                             width={624}
                             height={539}
                             src="/img/img-19.avif"
-                            alt="Oksana Avdeichik"
+                            alt="Организация детских праздников и банкетов в студиях Давай поиграем и Характер в Находке"
                             className="h-full w-full object-cover"
+                            loading="lazy"
                         />
                     </div>
                 </div>

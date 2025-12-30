@@ -64,8 +64,9 @@ export default async function ItemPage(
                                 width={406}
                                 height={350}
                                 src={item.imageJpg}
-                                alt={item.title}
+                                alt={`${item.title} - ${category.title} для детского праздника с доставкой в Находке, цена ${item.price} руб.`}
                                 className="w-full flex-1 h-auto rounded-tr-[100px] rounded-bl-[100px] object-cover"
+                                loading="lazy"
                             />
                             <p className="mb-[30px] mt-[30px] text text-center md:text-left">
                                 Вес: {item.portionWeightGrams} г
