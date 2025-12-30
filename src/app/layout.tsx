@@ -1,10 +1,11 @@
-import type { Metadata } from 'next';
-import { Toaster } from 'sonner';
-import { avenir, cormorant_infant, manege, tenor_sans } from '@/fonts';
-import { Footer } from '@/components/footer';
-import { Header } from '@/components/header';
-import CartProvider from '@/providers/CartProvider';
-import './globals.css';
+import type { Metadata } from "next";
+import { Toaster } from "sonner";
+import { avenir, cormorant_infant, manege, tenor_sans } from "@/fonts";
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import CartProvider from "@/providers/CartProvider";
+import { LocalBusinessSchema } from "@/components/StructuredData";
+import "./globals.css";
 
 export const metadata: Metadata = {
     title: {
@@ -63,6 +64,23 @@ export default function RootLayout({
                 className={`${avenir.variable} ${manege.variable} ${cormorant_infant.variable} ${tenor_sans.variable} antialiased bg-lightbrown`}
                 suppressHydrationWarning
             >
+                <LocalBusinessSchema
+                    name="Детские студии Давай поиграем и Характер"
+                    description="Организация детских праздников, дней рождения, мастер-классов и шоу программ в Находке"
+                    url="https://kharakter.ru"
+                    telephone="+7 (xxx) xxx-xx-xx"
+                    address={{
+                        streetAddress: "ул. Примерная, д. 1",
+                        addressLocality: "Находка",
+                        addressRegion: "Приморский край",
+                        postalCode: "692900",
+                        addressCountry: "RU",
+                    }}
+                    openingHours={[
+                        "Mo-Su 10:00-20:00",
+                    ]}
+                    priceRange="$$"
+                />
                 <CartProvider>
                     <Header />
                     <Toaster position="top-center" />
