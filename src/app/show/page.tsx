@@ -1,8 +1,7 @@
 import BreadCrumbs from '@/components/breadcrums';
 import HowToConnect from '@/components/how-to-connect';
-import ServiceImages from '@/components/ServiceImages';
-import Image from 'next/image';
 import { getShow } from '../data/services';
+import ServicePageClient from '@/components/ServicePageClient';
 
 export default async function ShowPage() {
     const data = await getShow();
@@ -19,25 +18,7 @@ export default async function ShowPage() {
                 длительность всех видов шоу от 30 минут до одного часа.
             </p>
 
-            <div>
-                <div className="search flex text-center items-center justify-center mb-[30px]">
-                    <div className="relative">
-                        <Image
-                            width={20}
-                            height={20}
-                            src="/img/search.svg"
-                            alt="search"
-                            className="absolute left-2.5 top-[13px]"
-                        />
-                        <input
-                            type="text"
-                            id="search"
-                            className="py-2.5 ps-[30px] pe-2.5 rounded-4xl text-lightgreen border bg-white outline-lightgreen"
-                        />
-                    </div>
-                </div>
-                <ServiceImages items={data} alt="show" path="show" />
-            </div>
+            <ServicePageClient services={data} alt="show" path="show" />
             <HowToConnect />
         </main>
     );
