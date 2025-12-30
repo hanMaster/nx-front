@@ -10,6 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { BreadcrumbSchema } from "@/components/StructuredData";
 
 export async function generateMetadata(
     props: PageProps<"/menu/[categoryId]">,
@@ -52,6 +53,22 @@ export default async function CategoryPage(
 
     return (
         <main className="md:container md:m-auto pt-[85px]">
+            <BreadcrumbSchema
+                items={[
+                    {
+                        name: 'Главная',
+                        url: 'https://kharakter.ru/',
+                    },
+                    {
+                        name: 'Меню',
+                        url: 'https://kharakter.ru/menu',
+                    },
+                    {
+                        name: category.title,
+                        url: `https://kharakter.ru/menu/${categoryId}`,
+                    },
+                ]}
+            />
             <div className="bg-grey sm:bg-inherit">
                 <section className="py-5 lg:py-[30px] bg-grey-light m-0">
                     <ol className="flex flex-wrap text-xs leading-4 text-green md:text-lg lg:text-xl lg:leading-5">

@@ -16,6 +16,8 @@ export const avenir = localFont({
         },
     ],
     variable: '--font-avenir',
+    preload: true, // Preload main body font for better performance
+    display: 'swap',
 });
 
 export const manege = localFont({
@@ -27,12 +29,15 @@ export const manege = localFont({
         },
     ],
     variable: '--font-manege-demo',
+    display: 'swap',
 });
 
 export const cormorant_infant = Cormorant_Infant({
-    subsets: ['latin', 'cyrillic', 'cyrillic-ext'],
+    subsets: ['cyrillic'], // Only load cyrillic subset for Russian content
     display: 'swap',
+    weight: ['400', '600', '700'], // Only load needed weights to reduce bundle size
     variable: '--font-cormorant-infant',
+    preload: true, // Preload as it's used in many visible UI elements
 });
 
 export const tenor_sans = Tenor_Sans({

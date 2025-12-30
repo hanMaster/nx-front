@@ -48,6 +48,8 @@ export default async function HeroesPage(props: PageProps<"/heroes/[id]">) {
                 pageTitle="Герои и программы"
                 pagePath="heroes"
                 isLink={true}
+                currentItemTitle={service.title}
+                currentItemPath={`/heroes/${id}`}
             />
             <ServiceItem service={service} />
             <HowToConnect />

@@ -6,7 +6,7 @@ import CategoryChanger from '@/components/CategoryChanger';
 import CartButton from '@/components/cart/CartButton';
 import Image from 'next/image';
 import type { Metadata } from 'next';
-import { ProductSchema } from '@/components/StructuredData';
+import { ProductSchema, BreadcrumbSchema } from '@/components/StructuredData';
 
 export async function generateMetadata(
     props: PageProps<'/menu/[categoryId]/[itemId]'>
@@ -49,6 +49,26 @@ export default async function ItemPage(
 
     return (
         <main className="md:container md:m-auto pt-[85px]">
+            <BreadcrumbSchema
+                items={[
+                    {
+                        name: 'Главная',
+                        url: 'https://kharakter.ru/',
+                    },
+                    {
+                        name: 'Меню',
+                        url: 'https://kharakter.ru/menu',
+                    },
+                    {
+                        name: category.title,
+                        url: `https://kharakter.ru/menu/${category.id}`,
+                    },
+                    {
+                        name: item.title,
+                        url: `https://kharakter.ru/menu/${categoryId}/${itemId}`,
+                    },
+                ]}
+            />
             <div className="bg-grey sm:bg-inherit">
                 <section className="py-5 lg:py-[30px] bg-grey-light m-0">
                     <ol className="flex flex-wrap text-xs leading-4 text-green md:text-lg lg:text-xl lg:leading-5">

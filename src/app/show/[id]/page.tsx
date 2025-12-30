@@ -44,7 +44,13 @@ export default async function ShowPage(props: PageProps<"/show/[id]">) {
 
     return (
         <main className="md:container md:mx-auto pt-[85px]">
-            <BreadCrumbs pageTitle="Шоу" pagePath="show" isLink={true} />
+            <BreadCrumbs
+                pageTitle="Шоу"
+                pagePath="show"
+                isLink={true}
+                currentItemTitle={service.title}
+                currentItemPath={`/show/${id}`}
+            />
             <ServiceItem service={service} />
             <HowToConnect />
             <ServiceSchema

@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import CartProvider from "@/providers/CartProvider";
 import { LocalBusinessSchema } from "@/components/StructuredData";
+import YandexMetrika from "@/components/YandexMetrika";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -90,6 +91,7 @@ export default function RootLayout({
                     {children}
                     <Footer />
                 </CartProvider>
+                <YandexMetrika yandexId={process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID || ''} />
             </body>
         </html>
     );

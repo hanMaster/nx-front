@@ -50,6 +50,8 @@ export default async function AdditionPage(
                 pageTitle="Дополнения"
                 pagePath="additions"
                 isLink={true}
+                currentItemTitle={service.title}
+                currentItemPath={`/additions/${id}`}
             />
             <ServiceItem service={service} />
             <HowToConnect />

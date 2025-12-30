@@ -50,6 +50,8 @@ export default async function MasterClassPage(
                 pageTitle="Мастер-классы"
                 pagePath="masters"
                 isLink={true}
+                currentItemTitle={service.title}
+                currentItemPath={`/masters/${id}`}
             />
             <ServiceItem service={service} />
             <HowToConnect />
