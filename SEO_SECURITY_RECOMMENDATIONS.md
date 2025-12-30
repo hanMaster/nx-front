@@ -457,3 +457,17 @@ export function FAQSchema({ items }: { items: Array<{question: string; answer: s
 ---
 
 **Обновлено**: ${new Date().toISOString().split('T')[0]}
+
+Как протестировать схемы:
+
+После деплоя на production:
+
+1. Schema.org Validator: https://validator.schema.org/
+  - Вставить URL страницы товара/услуги
+  - Проверить валидность JSON-LD
+2. Google Rich Results Test: https://search.google.com/test/rich-results
+  - Вставить URL
+  - Посмотреть предпросмотр rich snippet
+3. Google Search Console:
+  - После индексации смотреть раздел "Enhancements"
+  - Проверять ошибки в Product/Service разметке

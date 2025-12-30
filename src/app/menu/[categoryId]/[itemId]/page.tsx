@@ -142,6 +142,12 @@ export default async function ItemPage(
                 </section>
             </div>
             <MakeOrderSimple />
+            <ProductSchema
+                name={item.title}
+                description={item.description || `${item.title} из категории ${category.title} для детского праздника в Находке`}
+                image={`https://kharakter.ru${item.imageJpg}`}
+                price={item.price}
+            />
         </main>
     );
 }

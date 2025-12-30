@@ -4,6 +4,7 @@ import HowToConnect from "@/components/how-to-connect";
 import ServiceItem from "@/components/service-item";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { ServiceSchema } from "@/components/StructuredData";
 
 export async function generateMetadata(
     props: PageProps<"/show/[id]">,
@@ -46,6 +47,14 @@ export default async function ShowPage(props: PageProps<"/show/[id]">) {
             <BreadCrumbs pageTitle="Шоу" pagePath="show" isLink={true} />
             <ServiceItem service={service} />
             <HowToConnect />
+            <ServiceSchema
+                name={service.title}
+                description={service.description}
+                provider="Детские студии Давай поиграем и Характер"
+                areaServed="Находка"
+                priceRange={`${service.discountPrice || service.price} руб.`}
+                image={`https://kharakter.ru/${service.mainPicture}`}
+            />
         </main>
     );
 }
