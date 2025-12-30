@@ -10,7 +10,7 @@ import { useCart } from '@/providers/CartProvider';
 export function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname();
-    const { food } = useCart();
+    const { getTotalItemsCount } = useCart();
 
     const resetMenu = () => {
         setIsMenuOpen(false);
@@ -70,7 +70,7 @@ export function Header() {
                                     alt="Корзина"
                                 />
                                 <span className="absolute bottom-[-3px] right-[-3px] flex h-[23px] w-[23px] items-center justify-center rounded-[50%] bg-green text-xs font-medium leading-4 text-white">
-                                    {food.length}
+                                    {getTotalItemsCount()}
                                 </span>
                             </button>
                         </Link>

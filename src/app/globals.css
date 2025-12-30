@@ -241,3 +241,23 @@ section {
 .active-tab {
     @apply text-lightgreen bg-[rgba(255,255,255,0.45)] border-b-0;
 }
+
+.tab-headers {
+    @apply flex w-full;
+}
+
+.form-group {
+    @apply flex flex-col mb-5;
+}
+
+.form-group label {
+    @apply text-green mb-2;
+}
+
+.form-group input {
+    @apply p-2.5 rounded-[10px] outline-none border border-[rgba(109,94,60,0.45)];
+}
+
+.mem {
+    @apply text-red-600;
+}

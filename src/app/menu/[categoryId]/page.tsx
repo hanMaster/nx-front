@@ -62,29 +62,36 @@ export default async function CategoryPage(
                             key={item.id}
                             className="block w-full md:w-1/2 lg:w-1/3 2xl:w-1/5 py-3 px-2 md:p-3"
                         >
-                            <Link
-                                href={`/menu/${categoryId}/${item.id}`}
-                                className="category-item-card"
-                            >
-                                <Image
-                                    width={406}
-                                    height={350}
-                                    src={item.imageJpg}
-                                    alt={item.title}
-                                    className="rounded-tr-[50px] rounded-bl-[50px]"
-                                />
+                            <div className="category-item-card">
+                                <Link href={`/menu/${categoryId}/${item.id}`}>
+                                    <Image
+                                        width={406}
+                                        height={350}
+                                        src={item.imageJpg}
+                                        alt={item.title}
+                                        className="rounded-tr-[50px] rounded-bl-[50px] cursor-pointer"
+                                    />
 
-                                <h5 className="menu-item-title text-center text-green flex-1">
-                                    {item.title}
-                                </h5>
+                                    <h5 className="menu-item-title text-center text-green flex-1 cursor-pointer">
+                                        {item.title}
+                                    </h5>
 
-                                <p className="inline-block text-center font-['AvenirNextCyr'] font-normal text-lg text-green">
-                                    Цена: {item.price} руб.
-                                </p>
+                                    <p className="inline-block text-center font-['AvenirNextCyr'] font-normal text-lg text-green cursor-pointer">
+                                        Цена: {item.price} руб.
+                                    </p>
+                                </Link>
                                 <div className="flex items-center gap-[30px]">
-                                    <CartButton />
+                                    <CartButton
+                                        item={{
+                                            id: item.id,
+                                            title: item.title,
+                                            price: item.price,
+                                            imageWebp: item.imageWebp,
+                                            minOrder: item.minOrder
+                                        }}
+                                    />
                                 </div>
-                            </Link>
+                            </div>
                         </div>
                     ))}
             </div>

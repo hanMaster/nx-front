@@ -1,23 +1,26 @@
 'use client';
 
 import { useCart } from '@/providers/CartProvider';
+import { Hall } from '@/providers/types';
 
-interface CountAdjustProps {
-    id: number;
-    count: number;
-    className?: string;
+interface DurationAdjustProps {
+    hall: Hall;
 }
 
-export default function CountAdjust({ id, count, className = '' }: CountAdjustProps) {
-    const { increase, decrease } = useCart();
+export default function DurationAdjust({ hall }: DurationAdjustProps) {
+    const { increaseDuration, decreaseDuration } = useCart();
+
+    const dur = hall.duration + hall.diff;
+    const dh = Math.trunc(dur / 60);
+    const dm = dur % 60;
 
     return (
-        <div className={`border border-[rgba(109,94,60,0.45)] flex gap-1 rounded-[40px] w-full justify-between ${className}`}>
+        <div className="border border-[rgba(109,94,60,0.45)] flex gap-1 rounded-[40px] w-full justify-between">
             <span
                 className="count-adjust-button"
                 onClick={(e) => {
                     e.stopPropagation();
-                    decrease(id);
+                    decreaseDuration(hall);
                 }}
             >
                 <svg
@@ -31,12 +34,14 @@ export default function CountAdjust({ id, count, className = '' }: CountAdjustPr
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15" />
                 </svg>
             </span>
-            <span className="py-[5px] md:py-[18px] select-none text-green">{count}</span>
+            <span className="py-[5px] md:py-[18px] select-none text-green">
+                {`${dh}ч`} {dm > 0 && `${dm}м`}
+            </span>
             <span
                 className="count-adjust-button"
                 onClick={(e) => {
                     e.stopPropagation();
-                    increase(id);
+                    increaseDuration(hall);
                 }}
             >
                 <svg

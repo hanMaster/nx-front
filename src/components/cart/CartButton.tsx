@@ -1,13 +1,42 @@
-import CountAdjust from './CountAdjust';
+'use client';
 
-export default function CartButton() {
-    const inCart = false;
+import { useCart } from '@/providers/CartProvider';
+import CountAdjust from './CountAdjust';
+import { Food } from '@/providers/types';
+
+interface CartButtonProps {
+    item: {
+        id: number;
+        title: string;
+        price: number;
+        imageWebp: string;
+        minOrder: number;
+    };
+}
+
+export default function CartButton({ item }: CartButtonProps) {
+    const { order, addToCart } = useCart();
+
+    const cartItem = order.food.find((i) => i.id === item.id);
+    const inCart = !!cartItem;
+
+    const handleAddToCart = () => {
+        const foodItem: Food = {
+            id: item.id,
+            title: item.title,
+            price: item.price,
+            imageWebp: item.imageWebp,
+            minOrder: item.minOrder,
+            count: item.minOrder
+        };
+        addToCart(foodItem);
+    };
 
     if (inCart) {
-        return <CountAdjust />;
+        return <CountAdjust id={item.id} count={cartItem.count} />;
     } else {
         return (
-            <button className="add-to-cart-food-btn">
+            <button className="add-to-cart-food-btn" onClick={handleAddToCart}>
                 <svg
                     width="21"
                     height="22"

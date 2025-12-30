@@ -97,7 +97,15 @@ export default async function ItemPage(
                                         : 'Это очень вкусно! Рекомендуем попробовать!'}
                                 </p>
                             </div>
-                            <CartButton />
+                            <CartButton
+                                item={{
+                                    id: item.id,
+                                    title: item.title,
+                                    price: item.price,
+                                    imageWebp: item.imageWebp,
+                                    minOrder: item.minOrder
+                                }}
+                            />
                         </div>
                     </div>
                 </section>

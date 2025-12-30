@@ -1,6 +1,7 @@
 import { Service } from '@/app/data/services';
 import Image from 'next/image';
 import GoBackBtn from './GoBackBtn';
+import ServiceCartButton from './cart/ServiceCartButton';
 
 export default function ServiceItem({ service }: { service: Service }) {
     return (
@@ -35,14 +36,8 @@ export default function ServiceItem({ service }: { service: Service }) {
 
             <div className="centered-buttons">
                 <GoBackBtn />
-                <button className="md:hidden bg-brown text-white py-2.5 px-5 rounded-3xl font-cormorant text-[20px] fixed right-5 bottom-12.5">
-                    {/* { cart.isServiceInCart() ? 'Удалить' : 'Выбрать' } */}
-                    Выбрать
-                </button>
-                <button className="custom__btn border border-brown">
-                    {/* { cart.isServiceInCart() ? 'Удалить из корзины' : 'Добавить в корзину' } */}
-                    Добавить в корзину
-                </button>
+                <ServiceCartButton service={service} className="md:hidden bg-brown text-white py-2.5 px-5 rounded-3xl font-cormorant text-[20px] fixed right-5 bottom-12.5" />
+                <ServiceCartButton service={service} />
             </div>
             <div className="gallery-images">
                 <div className="image-wrapper">
@@ -56,10 +51,7 @@ export default function ServiceItem({ service }: { service: Service }) {
                 </div>
             </div>
             <div className="centered-buttons">
-                <button className="custom__btn border border-brown">
-                    {/* { cart.isServiceInCart() ? 'Удалить из корзины' : 'Добавить в корзину' } */}
-                    Добавить в корзину
-                </button>
+                <ServiceCartButton service={service} />
             </div>
         </section>
     );
