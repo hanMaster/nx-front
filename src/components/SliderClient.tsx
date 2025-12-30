@@ -39,6 +39,7 @@ export default function SliderClient({
                         src={`/${i.filename}`}
                         alt={`${altPrefix} в студиях Давай поиграем и Характер в Находке - фото ${index + 1}`}
                         className="rounded-2xl"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         loading="lazy"
                     />
                 </SwiperSlide>

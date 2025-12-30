@@ -47,6 +47,7 @@ export default function ServiceItem({ service }: { service: Service }) {
                         src={`/${service.mainPicture}`}
                         alt={`${service.title} - услуга для детского праздника в Находке, ${service.duration} минут, цена ${service.discountPrice || service.price} руб.`}
                         className="rounded-[40px]"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 406px"
                         loading="lazy"
                     />
                 </div>

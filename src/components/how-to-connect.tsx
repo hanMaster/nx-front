@@ -53,6 +53,7 @@ export default function HowToConnect() {
                             src="/img/oksana.png"
                             alt="Оксана Авдейчик - организатор детских праздников в студиях Давай поиграем и Характер в Находке"
                             className="h-full w-full object-cover"
+                            sizes="(max-width: 768px) 0vw, 50vw"
                             loading="lazy"
                         />
                     </div>

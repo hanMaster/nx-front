@@ -26,6 +26,7 @@ export default async function MenuPage() {
                                     src={`/${c.imageUrl}`}
                                     alt={`${c.title} - меню для детского праздника с доставкой в Находке`}
                                     className="rounded-tr-[100px] md:rounded-tr-[50%] rounded-bl-[100px] md:rounded-bl-[50%] w-full flex-1"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 20vw"
                                     loading="lazy"
                                 />
 

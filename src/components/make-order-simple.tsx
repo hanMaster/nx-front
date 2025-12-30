@@ -52,6 +52,7 @@ export default function MakeOrderSimple() {
                             src="/img/img-19.avif"
                             alt="Организация детских праздников и банкетов в студиях Давай поиграем и Характер в Находке"
                             className="h-full w-full object-cover"
+                            sizes="(max-width: 768px) 0vw, 50vw"
                             loading="lazy"
                         />
                     </div>

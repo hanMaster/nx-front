@@ -6,6 +6,7 @@ import CategoryChanger from '@/components/CategoryChanger';
 import CartButton from '@/components/cart/CartButton';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { ProductSchema } from '@/components/StructuredData';
 
 export async function generateMetadata(
     props: PageProps<'/menu/[categoryId]/[itemId]'>
@@ -94,6 +95,7 @@ export default async function ItemPage(
                                 src={item.imageJpg}
                                 alt={`${item.title} - ${category.title} для детского праздника с доставкой в Находке, цена ${item.price} руб.`}
                                 className="w-full flex-1 h-auto rounded-tr-[100px] rounded-bl-[100px] object-cover"
+                                sizes="(max-width: 768px) 100vw, 50vw"
                                 loading="lazy"
                             />
                             <p className="mb-[30px] mt-[30px] text text-center md:text-left">

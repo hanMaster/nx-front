@@ -23,6 +23,7 @@ export default function NewYear() {
                         height="533"
                         src="/new-year/ny-header.jpg"
                         alt="Новогодняя ночевка в детском клубе Давай поиграем в Находке - ночь перед Новым годом 2026"
+                        sizes="(max-width: 768px) 90vw, 300px"
                         loading="lazy"
                     />
                 </div>
@@ -34,6 +35,7 @@ export default function NewYear() {
                         height="500"
                         src="/new-year/refs.jpeg"
                         alt="Оформление новогоднего праздника в клубе Давай поиграем - референсы декора"
+                        sizes="(max-width: 768px) 90vw, 400px"
                         loading="lazy"
                     />
                     <div className="text-center max-w-[700px]">
@@ -159,6 +161,7 @@ export default function NewYear() {
                         height={400}
                         src="/new-year/ny-0.jpg"
                         alt="Дед Мороз на новогоднем празднике в клубе Давай поиграем в Находке"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
                         loading="lazy"
                     />
                     <Image
@@ -167,6 +170,7 @@ export default function NewYear() {
                         height={400}
                         src="/new-year/ny-2.jpg"
                         alt="Новогодняя программа с Миньонами для детей в Находке"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
                         loading="lazy"
                     />
                 </div>
@@ -177,6 +181,7 @@ export default function NewYear() {
                         height={533}
                         src="/new-year/ny-1.jpeg"
                         alt="Новогодняя фотозона с гномами на детском празднике в Находке"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         loading="lazy"
                     />
                     <Image
@@ -185,6 +190,7 @@ export default function NewYear() {
                         height={680}
                         src="/new-year/ny-3.jpeg"
                         alt="Приготовление маршмеллоу на новогоднем празднике для детей в Находке"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         loading="lazy"
                     />
                     <Image
@@ -193,6 +199,7 @@ export default function NewYear() {
                         height={670}
                         src="/new-year/ny-4.jpeg"
                         alt="Вигвам для детской новогодней ночевки в клубе Давай поиграем"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         loading="lazy"
                     />
                 </div>
@@ -202,6 +209,7 @@ export default function NewYear() {
                     height={358}
                     src="/new-year/ny-5.jpeg"
                     alt="Празднование Нового 2026 года в детском клубе Давай поиграем в Находке"
+                    sizes="(max-width: 768px) 100vw, 600px"
                     loading="lazy"
                 />
 

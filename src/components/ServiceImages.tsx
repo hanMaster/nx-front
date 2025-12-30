@@ -26,6 +26,7 @@ export default function ServiceImages({
                             src={`/${item.mainPicture}`}
                             alt={`${item.title} - ${alt} в Находке, цена ${item.discountPrice || item.price} руб.`}
                             className="rounded-[40px]"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             loading="lazy"
                         />
 

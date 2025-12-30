@@ -90,6 +90,7 @@ export default async function DavaiPoigraemPage() {
                                 src={`/${i.filename}`}
                                 alt={`Интерьер детского клуба Давай поиграем в Находке - игровая зона для детских праздников, фото ${index + 1}`}
                                 className="rounded-2xl"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 loading="lazy"
                             />
                         </div>

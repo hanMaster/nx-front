@@ -34,6 +34,9 @@ export default function Home() {
                     src="/img/Oksana.jpg"
                     alt="Оксана Авдейчик - организатор детских праздников в студиях Давай поиграем и Характер в Находке"
                     className="rounded-[40px]"
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 365px"
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                 />
             </section>
             <div className="w-full text-center">
@@ -55,7 +58,10 @@ export default function Home() {
                                 alt="Детский клуб Давай поиграем - зал для проведения детских праздников и дней рождения в Находке"
                                 className="h-[275px] lg:h-[439px] xl:h-[539px] w-full object-cover first-left-image"
                                 style={{ width: 'auto' }}
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 48vw, 50vw"
                                 priority
+                                placeholder="blur"
+                                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAYAAAAxrNxjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAQklEQVQImWNgQAL/0cH/////MzAwMKBLoovj1YhNM4o4sjxWjSjyODXi1IhLE1aNSBqxakTSiFUjkkasGpE0YtUIAKHYJT9jzMGaAAAAAElFTkSuQmCC"
                             />
                         </Link>
                         <div className="md:flex absolute bottom-3 md:bottom-5 right-3 md:right-5">
@@ -85,6 +91,9 @@ export default function Home() {
                                 className="h-[275px] lg:h-[439px] xl:h-[539px] w-full object-cover first-right-image"
                                 alt="Студия вкуса Характер - банкетный зал для детских праздников с кейтерингом в Находке"
                                 style={{ width: 'auto' }}
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 48vw, 50vw"
+                                placeholder="blur"
+                                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAHAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                             />
                         </Link>
                         <div className="md:flex absolute bottom-3 md:bottom-5 right-3 md:left-5">

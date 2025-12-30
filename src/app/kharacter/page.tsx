@@ -101,6 +101,7 @@ export default async function DavaiPoigraemPage() {
                                 src={`/${i.filename}`}
                                 alt={`Интерьер студии вкуса Характер в Находке - банкетный зал для детских праздников, фото ${index + 1}`}
                                 className="rounded-2xl"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 loading="lazy"
                             />
                         </div>
