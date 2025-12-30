@@ -21,66 +21,97 @@ export interface MenuItem {
     proteins: number;
     fats: number;
     carbs: number;
+    minOrder: number;
 }
 
-let categories: Category[] = [];
-let items: MenuItem[] = [];
+let categories: Category[] | null = null;
+let items: MenuItem[] | null = null;
+let fetchPromise: Promise<void> | null = null; // Предотвращаем race condition
 
 export const fetchMenu = async () => {
-    await fetchMenuItems();
-    await fetchCategories();
+    // Если уже загружается, возвращаем существующий Promise
+    if (fetchPromise) return fetchPromise;
+
+    // Если уже загружено, ничего не делаем
+    if (categories && items) return;
+
+    // Создаем новый Promise для параллельной загрузки
+    fetchPromise = Promise.all([fetchMenuItems(), fetchCategories()])
+        .then(() => {
+            fetchPromise = null;
+        })
+        .catch((error) => {
+            fetchPromise = null;
+            console.error("[menuStore] fetchMenu error:", error);
+            throw error; // Пробрасываем для обработки в error.tsx
+        });
+
+    return fetchPromise;
 };
 
 const fetchMenuItems = async () => {
-    try {
-        const response = await fetch(`${baseUrl}menu-items`);
-        const data = await response.json();
-        items = data.map((item: MenuItem) => {
-            const minOrder = item.parentId === 9 ? 10 : 1;
-            return { ...item, minOrder };
-        });
-    } catch (error) {
-        console.error('[menuStore] error:', error);
+    const response = await fetch(`${baseUrl}menu-items`, {
+        next: {
+            revalidate: 3600, // Кэш на 1 час
+            tags: ["menu-items"],
+        },
+    });
+
+    if (!response.ok) {
+        throw new Error(`Failed to fetch menu items: ${response.status}`);
     }
+
+    const data = await response.json();
+    items = data.map((item: MenuItem) => {
+        const minOrder = item.parentId === 9 ? 10 : 1;
+        return { ...item, minOrder };
+    });
 };
+
 const fetchCategories = async () => {
-    try {
-        const response = await fetch(`${baseUrl}categories`);
-        categories = await response.json();
-    } catch (error) {
-        console.error('[menuStore] error:', error);
+    const response = await fetch(`${baseUrl}categories`, {
+        next: {
+            revalidate: 3600, // Кэш на 1 час
+            tags: ["categories"],
+        },
+    });
+
+    if (!response.ok) {
+        throw new Error(`Failed to fetch categories: ${response.status}`);
     }
+
+    categories = await response.json();
 };
 
 export const getItemsByCategory = async (id: number) => {
-    if (items.length === 0) {
+    if (!items) {
         await fetchMenu();
     }
-    return items.filter((i) => i.parentId === +id).sort((a, b) => a.ord - b.ord);
+    return items!.filter((i) => i.parentId === +id).sort((a, b) => a.ord - b.ord);
 };
 
 export const getItemById = async (id: number) => {
-    if (items.length === 0) {
+    if (!items) {
         await fetchMenu();
     }
-    return items.find((i) => i.id === +id) as MenuItem;
+    return items!.find((i) => i.id === +id) as MenuItem;
 };
 
 export const getCategories = async () => {
-    if (categories.length === 0) {
+    if (!categories) {
         await fetchMenu();
     }
-    return categories;
+    return categories!;
 };
 
 export const getCategoryById = async (id: number) => {
-    if (categories.length === 0) {
+    if (!categories) {
         await fetchMenu();
     }
-    return categories.find((i) => i.id === +id);
+    return categories!.find((i) => i.id === +id);
 };
 
-export const getParentById = (id: number) => {
-    const item = items.find((i) => i.id === +id);
-    return item ? item.parentId : '';
+export const getParentById = (id: number): number | null => {
+    const item = items?.find((i) => i.id === +id);
+    return item ? item.parentId : null;
 };

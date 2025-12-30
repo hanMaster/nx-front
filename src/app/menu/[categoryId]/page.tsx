@@ -2,16 +2,40 @@ import {
     getCategories,
     getCategoryById,
     getItemsByCategory,
-} from '@/app/data/menu';
-import CartButton from '@/components/cart/CartButton';
-import CategoryChanger from '@/components/CategoryChanger';
-import MakeOrderSimple from '@/components/make-order-simple';
-import Image from 'next/image';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
+} from "@/app/data/menu";
+import CartButton from "@/components/cart/CartButton";
+import CategoryChanger from "@/components/CategoryChanger";
+import MakeOrderSimple from "@/components/make-order-simple";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+
+export async function generateMetadata(
+    props: PageProps<"/menu/[categoryId]">,
+): Promise<Metadata> {
+    const { categoryId } = await props.params;
+    const category = await getCategoryById(+categoryId);
+
+    if (!category) {
+        return {
+            title: "Категория не найдена",
+        };
+    }
+
+    return {
+        title: category.title,
+        description: `Заказать ${category.title.toLowerCase()} для детского праздника в Находке. Доставка кейтеринга в студии Давай поиграем и Характер.`,
+        openGraph: {
+            title: `${category.title} - Меню`,
+            description: `Заказать ${category.title.toLowerCase()} для детского праздника в Находке`,
+            images: [category.imageUrl],
+        },
+    };
+}
 
 export default async function CategoryPage(
-    props: PageProps<'/menu/[categoryId]'>
+    props: PageProps<"/menu/[categoryId]">,
 ) {
     const { categoryId } = await props.params;
     const category = await getCategoryById(+categoryId);

@@ -22,48 +22,73 @@ export interface Service {
     discountPrice: number;
 }
 
-let services: Service[];
+let services: Service[] | null = null;
+let fetchPromise: Promise<void> | null = null; // Предотвращаем race condition
 
 async function fetchServices() {
-    try {
-        const response = await fetch(`${baseUrl}services`);
-        return response.json();
-    } catch (error) {
-        console.error('[services] error:', error);
-    }
+    // Если уже загружается, возвращаем существующий Promise
+    if (fetchPromise) return fetchPromise;
+
+    // Если уже загружено, ничего не делаем
+    if (services) return;
+
+    fetchPromise = (async () => {
+        const response = await fetch(`${baseUrl}services`, {
+            next: {
+                revalidate: 1800, // Кэш на 30 минут
+                tags: ["services"],
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`Failed to fetch services: ${response.status}`);
+        }
+
+        services = await response.json();
+    })()
+        .then(() => {
+            fetchPromise = null;
+        })
+        .catch((error) => {
+            fetchPromise = null;
+            console.error("[services] error:", error);
+            throw error;
+        });
+
+    return fetchPromise;
 }
 
 export async function getHeroes() {
     if (!services) {
-        services = await fetchServices();
+        await fetchServices();
     }
-    return services.filter(s => s.showType === HEROES);
+    return services!.filter((s) => s.showType === HEROES);
 }
 
 export async function getMasters() {
     if (!services) {
-        services = await fetchServices();
+        await fetchServices();
     }
-    return services.filter(s => s.showType === MASTERS);
+    return services!.filter((s) => s.showType === MASTERS);
 }
 
 export async function getShow() {
     if (!services) {
-        services = await fetchServices();
+        await fetchServices();
     }
-    return services.filter(s => s.showType === SHOW);
+    return services!.filter((s) => s.showType === SHOW);
 }
 
 export async function getAdditions() {
     if (!services) {
-        services = await fetchServices();
+        await fetchServices();
     }
-    return services.filter(s => s.showType === ADDITIONS);
+    return services!.filter((s) => s.showType === ADDITIONS);
 }
 
 export async function getServiceById(id: string) {
     if (!services) {
-        services = await fetchServices();
+        await fetchServices();
     }
-    return services.find(s => s.id === Number(id));
+    return services!.find((s) => s.id === Number(id));
 }

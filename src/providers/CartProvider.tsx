@@ -19,6 +19,22 @@ import dayjs from "dayjs";
 
 const CODE_LENGTH = 17;
 
+// Валидация и санитизация входных данных
+const sanitizeInput = (input: string, maxLength: number = 200): string => {
+    return input
+        .replace(/[<>]/g, "") // Удаляем HTML теги
+        .replace(/javascript:/gi, "") // Блокируем javascript: протокол
+        .replace(/on\w+=/gi, "") // Блокируем event handlers
+        .trim()
+        .slice(0, maxLength); // Ограничиваем длину
+};
+
+const sanitizeNumber = (input: string, min: number = 0, max: number = 999): string => {
+    const num = parseInt(input.replace(/\D/g, ""), 10);
+    if (isNaN(num)) return "0";
+    return Math.min(Math.max(num, min), max).toString();
+};
+
 const emptyAnketa: Anketa = {
     answer1: "",
     answer2: "",
@@ -364,11 +380,30 @@ export default function CartProvider({ children }: { children: ReactNode }) {
     );
 
     const updateAnketa = useCallback((field: keyof Anketa, value: string) => {
+        let sanitizedValue: string;
+
+        // Разная валидация для разных полей
+        switch (field) {
+            case "answer4": // Количество детей
+            case "answer5": // Количество взрослых
+                sanitizedValue = sanitizeNumber(value, 0, 200);
+                break;
+            case "answer3": // Возраст
+                sanitizedValue = sanitizeNumber(value, 1, 18);
+                break;
+            case "answer1": // Имя
+            case "answer2": // Имя именинника
+                sanitizedValue = sanitizeInput(value, 100);
+                break;
+            default:
+                sanitizedValue = sanitizeInput(value);
+        }
+
         setOrder((prev) => ({
             ...prev,
             anketa: {
                 ...prev.anketa,
-                [field]: value,
+                [field]: sanitizedValue,
             },
         }));
     }, []);
