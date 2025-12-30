@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import { useCart } from "@/providers/CartProvider";
 
 interface CountAdjustProps {
@@ -8,11 +9,7 @@ interface CountAdjustProps {
     className?: string;
 }
 
-export default function CountAdjust({
-    id,
-    count,
-    className = "",
-}: CountAdjustProps) {
+function CountAdjust({ id, count, className = "" }: CountAdjustProps) {
     const { increase, decrease } = useCart();
 
     return (
@@ -69,3 +66,5 @@ export default function CountAdjust({
         </div>
     );
 }
+
+export default memo(CountAdjust);

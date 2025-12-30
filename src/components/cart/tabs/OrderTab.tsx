@@ -80,7 +80,7 @@ export default function OrderTab() {
             ) : (
                 <p className="mt-6 text-center">
                     <a
-                        href={`https://t.me/oxana_a_18?text=Заявка: ${order.code}%0A${orderText().join("%0A")}`}
+                        href={`https://t.me/oxana_a_18?text=${encodeURIComponent(`Заявка: ${order.code}\n${orderText().join("\n")}`)}`}
                         target="_blank"
                         rel="noreferrer"
                         className="custom__btn border border-brown"

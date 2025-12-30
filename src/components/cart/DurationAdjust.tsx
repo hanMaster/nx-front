@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import { useCart } from "@/providers/CartProvider";
 import { Hall } from "@/providers/types";
 
@@ -7,7 +8,7 @@ interface DurationAdjustProps {
     hall: Hall;
 }
 
-export default function DurationAdjust({ hall }: DurationAdjustProps) {
+function DurationAdjust({ hall }: DurationAdjustProps) {
     const { increaseDuration, decreaseDuration } = useCart();
 
     const dur = hall.duration + hall.diff;
@@ -66,3 +67,5 @@ export default function DurationAdjust({ hall }: DurationAdjustProps) {
         </div>
     );
 }
+
+export default memo(DurationAdjust);
