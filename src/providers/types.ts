@@ -13,7 +13,7 @@ export interface Hall {
 export interface Food {
     count: number;
     id: number;
-    imageWebp: string;
+    imageJpg: string;
     minOrder: number;
     price: number;
     title: string;

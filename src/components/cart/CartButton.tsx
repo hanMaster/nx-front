@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { useCart } from '@/providers/CartProvider';
-import CountAdjust from './CountAdjust';
-import { Food } from '@/providers/types';
+import { useCart } from "@/providers/CartProvider";
+import CountAdjust from "./CountAdjust";
+import { Food } from "@/providers/types";
 
 interface CartButtonProps {
     item: {
         id: number;
         title: string;
         price: number;
-        imageWebp: string;
+        imageJpg: string;
         minOrder: number;
     };
 }
@@ -25,9 +25,9 @@ export default function CartButton({ item }: CartButtonProps) {
             id: item.id,
             title: item.title,
             price: item.price,
-            imageWebp: item.imageWebp,
+            imageJpg: item.imageJpg,
             minOrder: item.minOrder,
-            count: item.minOrder
+            count: item.minOrder,
         };
         addToCart(foodItem);
     };

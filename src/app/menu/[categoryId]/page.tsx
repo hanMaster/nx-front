@@ -136,7 +136,7 @@ export default async function CategoryPage(
                                         id: item.id,
                                         title: item.title,
                                         price: item.price,
-                                        imageWebp: item.imageWebp,
+                                        imageJpg: item.imageJpg,
                                         minOrder: item.minOrder,
                                     }}
                                 />

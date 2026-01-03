@@ -23,7 +23,11 @@ export default function FoodTab() {
                             className="border-b border-[rgba(92,112,78,0.25)] flex gap-3.5 md:gap-6 py-5 md:px-5 md:py-[30px]"
                         >
                             <Image
-                                src={i.imageWebp}
+                                src={
+                                    i.imageJpg.includes("selcdn")
+                                        ? i.imageJpg
+                                        : `/${i.imageJpg}`
+                                }
                                 alt={i.title}
                                 width={163}
                                 height={172}
