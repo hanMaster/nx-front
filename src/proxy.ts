@@ -10,7 +10,7 @@ export function proxy(request: NextRequest) {
         "Content-Security-Policy": [
             "default-src 'self'",
             "frame-src 'self' https://rutube.ru https://*.rutube.ru",
-            "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://mc.yandex.ru https://*.rutube.ru", // Next.js требует unsafe-eval и unsafe-inline
+            "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://*.yandex.ru https://*.yandex.com https://*.rutube.ru", // Next.js требует unsafe-eval и unsafe-inline
             "style-src 'self' 'unsafe-inline' fonts.googleapis.com https://*.rutube.ru",
             "img-src 'self' data: https: blob: https://mc.yandex.ru https://*.rutube.ru",
             "font-src 'self' data: fonts.gstatic.com",
