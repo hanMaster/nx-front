@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
 export default function MakeOrderSimple() {
     return (
@@ -15,18 +15,18 @@ export default function MakeOrderSimple() {
                         </h2>
                         <p>Работаем только по предварительной записи!</p>
                         <p className="lg:text-left">
-                            Мы на связи Whats App: <br />
+                            Мы на связи Telegram: <br />
                             <a
-                                href="https://wa.me/79147093888"
+                                href="https://t.me/oxana_a_18"
                                 className="flex items-center"
                             >
                                 <Image
                                     width="48"
                                     height="48"
-                                    src="/img/WhatsApp.svg"
-                                    alt="WhatsApp"
+                                    src="/Telegram_Logo.svg"
+                                    alt="Telegram"
                                 />
-                                +7(914)709-38-88
+                                &nbsp;&nbsp;+7(914)709-38-88
                             </a>
                         </p>
                         <p className="lg:text-start">
@@ -34,10 +34,10 @@ export default function MakeOrderSimple() {
                             Находка, Ленинская 20
                         </p>
                         <a
-                            href="https://chat.whatsapp.com/BUdJmMIZPCy3SePhAwY2jC"
+                            href="https://t.me/davaypoigraemnhk"
                             className="custom__btn border border-brown"
                         >
-                            Вступить в группу WhatsApp
+                            Вступить в группу Telegram
                         </a>
                         <div className="flex lg:ml-12 xl:ml-0 xl:mr-[30px] xl:w-full xl:justify-end">
                             <Link href="/cart" className="custom__block">
