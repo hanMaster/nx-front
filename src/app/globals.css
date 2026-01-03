@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 :root {
@@ -65,7 +65,7 @@ section {
 }
 
 .add-to-cart-food-btn {
-    @apply border bg-lightgreen hover:bg-brown px-6 py-3.5 rounded-[40px] border-[rgba(92,112,78,0.25)] text-white transition-colors font-cormorant font-semibold text-2xl w-full cursor-pointer text-center;
+    @apply flex items-center gap-5 justify-center border bg-lightgreen hover:bg-brown px-6 py-3.5 rounded-[40px] border-[rgba(92,112,78,0.25)] text-white transition-colors font-cormorant font-semibold text-2xl w-full cursor-pointer;
 }
 
 .count-adjust-button {

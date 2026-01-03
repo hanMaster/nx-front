@@ -56,12 +56,12 @@ export default async function CategoryPage(
             <BreadcrumbSchema
                 items={[
                     {
-                        name: 'Главная',
-                        url: 'https://igra-em.ru/',
+                        name: "Главная",
+                        url: "https://igra-em.ru/",
                     },
                     {
-                        name: 'Меню',
-                        url: 'https://igra-em.ru/menu',
+                        name: "Меню",
+                        url: "https://igra-em.ru/menu",
                     },
                     {
                         name: category.title,
@@ -117,26 +117,25 @@ export default async function CategoryPage(
                                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 20vw"
                                         loading="lazy"
                                     />
-
-                                    <h5 className="menu-item-title text-center text-green flex-1 cursor-pointer">
-                                        {item.title}
-                                    </h5>
-
-                                    <p className="inline-block text-center font-['AvenirNextCyr'] font-normal text-lg text-green cursor-pointer">
-                                        Цена: {item.price} руб.
-                                    </p>
                                 </Link>
-                                <div className="flex items-center gap-[30px]">
-                                    <CartButton
-                                        item={{
-                                            id: item.id,
-                                            title: item.title,
-                                            price: item.price,
-                                            imageWebp: item.imageWebp,
-                                            minOrder: item.minOrder
-                                        }}
-                                    />
-                                </div>
+
+                                <h5 className="menu-item-title text-center text-green flex-1 cursor-pointer">
+                                    {item.title}
+                                </h5>
+
+                                <p className="text-center font-avenir font-normal text-lg text-green cursor-pointer">
+                                    Цена: {item.price} руб.
+                                </p>
+
+                                <CartButton
+                                    item={{
+                                        id: item.id,
+                                        title: item.title,
+                                        price: item.price,
+                                        imageWebp: item.imageWebp,
+                                        minOrder: item.minOrder,
+                                    }}
+                                />
                             </div>
                         </div>
                     ))}

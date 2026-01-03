@@ -53,9 +53,12 @@ export function Header() {
                             </svg>
                         </button>
                         <div className="hidden lg:block"></div>
-                        <button className="text-sm add-to-cart-food-btn max-w-[200px]">
+                        <Link
+                            href="/cart"
+                            className="text-sm add-to-cart-food-btn max-w-[200px]"
+                        >
                             Сделать заказ
-                        </button>
+                        </Link>
                         <Navigation isMobile={false} />
 
                         <Link

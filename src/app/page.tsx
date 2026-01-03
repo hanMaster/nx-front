@@ -79,7 +79,7 @@ export default function Home() {
                     </p>
                 </div>
                 <div className="sm:w-[48%]">
-                    <h2 className="subtitle2 mb-5 lg:mb-[30px]">
+                    <h2 className="title mb-5 lg:mb-[30px]">
                         Студия вкуса “Характер”
                     </h2>
                     <div className="relative mb-5 w-full rounded-t-[50%] lg:mb-[30px]">
