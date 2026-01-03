@@ -1,4 +1,4 @@
-import { getServiceById } from "@/app/data/services";
+import { getServiceById, getImagesByGalleryId } from "@/app/data/services";
 import BreadCrumbs from "@/components/breadcrums";
 import HowToConnect from "@/components/how-to-connect";
 import ServiceItem from "@/components/service-item";
@@ -39,6 +39,7 @@ export default async function AdditionPage(
 ) {
     const { id } = await props.params;
     const service = await getServiceById(id);
+    const images = await getImagesByGalleryId(service?.galleryId || 0);
 
     if (!service) {
         return notFound();
@@ -53,7 +54,7 @@ export default async function AdditionPage(
                 currentItemTitle={service.title}
                 currentItemPath={`/additions/${id}`}
             />
-            <ServiceItem service={service} />
+            <ServiceItem service={service} images={images} />
             <HowToConnect />
             <ServiceSchema
                 name={service.title}

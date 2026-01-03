@@ -1,9 +1,16 @@
 import { Service } from "@/app/data/services";
+import { SliderImage } from "@/app/data/gallery";
 import Image from "next/image";
 import GoBackBtn from "./GoBackBtn";
 import ServiceCartButton from "./cart/ServiceCartButton";
 
-export default function ServiceItem({ service }: { service: Service }) {
+export default function ServiceItem({
+    service,
+    images = []
+}: {
+    service: Service;
+    images?: SliderImage[];
+}) {
     return (
         <section className="lg:p-0">
             <h1 className="title mb-5">{service.title}</h1>
@@ -43,19 +50,39 @@ export default function ServiceItem({ service }: { service: Service }) {
                 />
                 <ServiceCartButton service={service} />
             </div>
-            <div className="gallery-images">
-                <div className="image-wrapper">
-                    <Image
-                        width={406}
-                        height={350}
-                        src={`/${service.mainPicture}`}
-                        alt={`${service.title} - услуга для детского праздника в Находке, ${service.duration} минут, цена ${service.discountPrice || service.price} руб.`}
-                        className="rounded-[40px]"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 406px"
-                        loading="lazy"
-                    />
+
+            {images && images.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-10 px-4 md:px-0">
+                    {images.map((image, index) => (
+                        <div key={image.id} className="w-full">
+                            <Image
+                                width={406}
+                                height={350}
+                                src={`/${image.filename}`}
+                                alt={`${service.title} - фото услуги для детского праздника в Находке - фото ${index + 1}`}
+                                className="rounded-2xl w-full h-auto object-cover"
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                                loading="lazy"
+                            />
+                        </div>
+                    ))}
                 </div>
-            </div>
+            ) : (
+                <div className="gallery-images">
+                    <div className="image-wrapper">
+                        <Image
+                            width={406}
+                            height={350}
+                            src={`/${service.mainPicture}`}
+                            alt={`${service.title} - услуга для детского праздника в Находке, ${service.duration} минут, цена ${service.discountPrice || service.price} руб.`}
+                            className="rounded-[40px]"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 406px"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+            )}
+
             <div className="centered-buttons">
                 <ServiceCartButton service={service} />
             </div>

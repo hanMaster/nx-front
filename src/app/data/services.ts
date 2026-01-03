@@ -58,6 +58,18 @@ async function fetchServices() {
     return fetchPromise;
 }
 
+export async function getImagesByGalleryId(id: number) {
+    if (Number(id) === 0) {
+        return [];
+    }
+    try {
+        const response = await fetch(`${baseUrl}images/${id}`);
+        return response.json();
+    } catch (error) {
+        console.error("[services] error:", error);
+    }
+}
+
 export async function getHeroes() {
     if (!services) {
         await fetchServices();
