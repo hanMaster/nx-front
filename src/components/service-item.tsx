@@ -1,7 +1,7 @@
-import { Service } from '@/app/data/services';
-import Image from 'next/image';
-import GoBackBtn from './GoBackBtn';
-import ServiceCartButton from './cart/ServiceCartButton';
+import { Service } from "@/app/data/services";
+import Image from "next/image";
+import GoBackBtn from "./GoBackBtn";
+import ServiceCartButton from "./cart/ServiceCartButton";
 
 export default function ServiceItem({ service }: { service: Service }) {
     return (
@@ -20,14 +20,14 @@ export default function ServiceItem({ service }: { service: Service }) {
                 </h3>
             ) : (
                 <h3 className="subtitle2">
-                    Стоимость услуги: <s>{service.price}</s>{' '}
+                    Стоимость услуги: <s>{service.price}</s>{" "}
                     {service.discountPrice} руб.
                 </h3>
             )}
 
             {service.materialPrice > 0 ? (
                 <p className="subtitle text-center mb-10">
-                    Стоимость расходных материалов на 1 участника:{' '}
+                    Стоимость расходных материалов на 1 участника:{" "}
                     {service.materialPrice} руб.
                 </p>
             ) : (
@@ -36,7 +36,11 @@ export default function ServiceItem({ service }: { service: Service }) {
 
             <div className="centered-buttons">
                 <GoBackBtn />
-                <ServiceCartButton service={service} className="md:hidden bg-brown text-white py-2.5 px-5 rounded-3xl font-cormorant text-[20px] fixed right-5 bottom-12.5" />
+                <ServiceCartButton
+                    service={service}
+                    isFixed={true}
+                    className="md:hidden bg-brown text-white py-2.5 px-5 rounded-3xl font-cormorant text-[20px] fixed right-5 bottom-12.5"
+                />
                 <ServiceCartButton service={service} />
             </div>
             <div className="gallery-images">
