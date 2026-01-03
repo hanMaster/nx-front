@@ -53,6 +53,7 @@ export type CartCtxType = {
     decreaseDuration: (hall: Hall) => void;
     hallAmount: (hall: Hall) => number;
     updateHallDateTime: (hallId: number, dateTime: string) => void;
+    getHallDiff: (hallIndex: number) => number;
 
     // Anketa methods
     updateAnketa: (field: keyof Anketa, value: string) => void;

@@ -21,10 +21,12 @@ export function intoDate(dateStr: string): Date {
    return new Date(+date[0], +date[1] - 1, +date[2], +time[0], +time[1]);
 }
 
-export const hallTime = (hall: Hall, onlyDate = false): string => {
+export const hallTime = (hall: Hall, onlyDate = false, customDiff?: number): string => {
    const startDateTime = intoDate(hall.dateTime);
    const dStart = dayjs(startDateTime);
-   const dFinish = dStart.add(hall.duration + hall.diff, 'minutes');
+   // Используем customDiff если передан, иначе hall.diff (для обратной совместимости)
+   const diff = customDiff !== undefined ? customDiff : hall.diff;
+   const dFinish = dStart.add(hall.duration + diff, 'minutes');
    const date = dStart.format('DD.MM.YYYY');
    const timeStart = dStart.format('HH:mm');
    const timeFinish = dFinish.format('HH:mm');

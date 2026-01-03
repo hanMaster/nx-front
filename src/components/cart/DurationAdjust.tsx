@@ -6,12 +6,13 @@ import { Hall } from "@/providers/types";
 
 interface DurationAdjustProps {
     hall: Hall;
+    diff: number;
 }
 
-function DurationAdjust({ hall }: DurationAdjustProps) {
+function DurationAdjust({ hall, diff }: DurationAdjustProps) {
     const { increaseDuration, decreaseDuration } = useCart();
 
-    const dur = hall.duration + hall.diff;
+    const dur = hall.duration + diff;
     const dh = Math.trunc(dur / 60);
     const dm = dur % 60;
 

@@ -15,6 +15,7 @@ export default function HallTab() {
         setActiveTab,
         hallAmount,
         updateHallDateTime,
+        getHallDiff,
     } = useCart();
 
     const amount = (hall: (typeof order.halls)[0]) => {
@@ -51,7 +52,7 @@ export default function HallTab() {
         <div className="p-[30px] bg-[rgba(255,255,255,0.45)] md:rounded-b-[40px]">
             {order.halls.length > 0 && (
                 <div className="mb-6">
-                    {order.halls.map((i) => (
+                    {order.halls.map((i, index) => (
                         <div key={i.id}>
                             <div className="flex gap-3.5 md:gap-6 py-5 md:px-5 md:py-[30px]">
                                 <Image
@@ -115,7 +116,7 @@ export default function HallTab() {
                                 </div>
                                 <div className="form-group w-full">
                                     <label>Длительность мероприятия</label>
-                                    <DurationAdjust hall={i} />
+                                    <DurationAdjust hall={i} diff={getHallDiff(index)} />
                                 </div>
                             </div>
                         </div>

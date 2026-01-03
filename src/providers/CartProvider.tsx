@@ -187,7 +187,7 @@ export default function CartProvider({ children }: { children: ReactNode }) {
                 } else {
                     lines.push(`${studioName} - ${dh}ч`);
                 }
-                lines.push(`${hallTime(hall)} - ${hallAmount(hall, index)} р`);
+                lines.push(`${hallTime(hall, false, diff)} - ${hallAmount(hall, index)} р`);
                 lines.push(" ");
             }
 
@@ -222,7 +222,8 @@ export default function CartProvider({ children }: { children: ReactNode }) {
 
         if (order.show.length) {
             if (isNightOrdered()) {
-                lines.push(`Дата ночевки: ${hallTime(order.halls[0], true)}`);
+                const nightDiff = getHallDiff(0);
+                lines.push(`Дата ночевки: ${hallTime(order.halls[0], true, nightDiff)}`);
             }
             for (const [index, s] of order.show.entries()) {
                 const dop = s.materialPrice
@@ -560,6 +561,7 @@ export default function CartProvider({ children }: { children: ReactNode }) {
             decreaseDuration,
             hallAmount,
             updateHallDateTime,
+            getHallDiff,
             updateAnketa,
             addServiceToCart,
             removeServiceFromCart,
@@ -590,6 +592,7 @@ export default function CartProvider({ children }: { children: ReactNode }) {
             decreaseDuration,
             hallAmount,
             updateHallDateTime,
+            getHallDiff,
             updateAnketa,
             addServiceToCart,
             removeServiceFromCart,
