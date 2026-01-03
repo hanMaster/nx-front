@@ -1,14 +1,6 @@
 import BreadCrumbs from "@/components/breadcrums";
 import HowToConnect from "@/components/how-to-connect";
 import { getVideo } from "../data/video";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-    other: {
-        "Content-Security-Policy":
-            "default-src 'self'; frame-src 'self' https://rutube.ru",
-    },
-};
 
 export default async function VideoPage() {
     const video = await getVideo();
