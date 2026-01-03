@@ -12,4 +12,10 @@ export default async function SliderRazvivalochka() {
             />
         );
     }
+
+    return (
+        <div className="text-center p-4 text-gray-500">
+            Изображения развивалочки не загружены
+        </div>
+    );
 }
