@@ -114,11 +114,25 @@ export default function CartProvider({ children }: { children: ReactNode }) {
         return order.show.reduce((acc, s) => acc + s.duration, 0);
     }, [order.show]);
 
+    // Compute hall time diff dynamically (derived from show services and hall duration)
+    // This avoids storing derived state and prevents cascading renders
+    const getHallDiff = useCallback((hallIndex: number): number => {
+        if (hallIndex !== 0 || !order.halls[0]) return 0;
+
+        const hallsDuration = order.halls.reduce((acc, h) => acc + h.duration, 0);
+        const servicesDuration = totalServicesDuration();
+        const diff = servicesDuration + 30 - hallsDuration;
+
+        return diff > 0 ? diff : 0;
+    }, [order.halls, totalServicesDuration]);
+
     const hallAmount = useCallback(
-        (hall: Hall) => {
-            return Math.round((hall.price / 60) * (hall.duration + hall.diff));
+        (hall: Hall, hallIndex?: number) => {
+            const index = hallIndex ?? order.halls.findIndex((h) => h.id === hall.id);
+            const diff = getHallDiff(index);
+            return Math.round((hall.price / 60) * (hall.duration + diff));
         },
-        [],
+        [order.halls, getHallDiff],
     );
 
     const showTotal = useCallback(() => {
@@ -151,21 +165,6 @@ export default function CartProvider({ children }: { children: ReactNode }) {
         return foodCount + order.show.length + order.halls.length;
     }, [order.food, order.show.length, order.halls.length]);
 
-    // Auto-calculate time diff when services change
-    useEffect(() => {
-        const hallsDuration = order.halls.reduce(
-            (acc, h) => acc + h.duration,
-            0,
-        );
-        const diff = totalServicesDuration() + 30 - hallsDuration;
-        if (diff > 0 && order.halls[0]) {
-            setOrder((prev) => ({
-                ...prev,
-                halls: prev.halls.map((h, i) => (i === 0 ? { ...h, diff } : h)),
-            }));
-        }
-    }, [order.show, order.halls, totalServicesDuration]);
-
     const orderText = useCallback((): string[] => {
         const a = order.anketa;
         const lines: string[] = [];
@@ -173,12 +172,13 @@ export default function CartProvider({ children }: { children: ReactNode }) {
         if (!isNightOrdered()) {
             const halls = order.halls.length > 1;
             const hallsDuration = order.halls.reduce(
-                (acc, h) => acc + h.duration + h.diff,
+                (acc, h, i) => acc + h.duration + getHallDiff(i),
                 0,
             );
 
-            for (const hall of order.halls) {
-                const dur = hall.duration + hall.diff;
+            for (const [index, hall] of order.halls.entries()) {
+                const diff = getHallDiff(index);
+                const dur = hall.duration + diff;
                 const dh = Math.trunc(dur / 60);
                 const dm = dur % 60;
                 const studioName = hall.name === "Характер" ? "Х" : "ДП";
@@ -187,7 +187,7 @@ export default function CartProvider({ children }: { children: ReactNode }) {
                 } else {
                     lines.push(`${studioName} - ${dh}ч`);
                 }
-                lines.push(`${hallTime(hall)} - ${hallAmount(hall)} р`);
+                lines.push(`${hallTime(hall)} - ${hallAmount(hall, index)} р`);
                 lines.push(" ");
             }
 
@@ -252,6 +252,7 @@ export default function CartProvider({ children }: { children: ReactNode }) {
         order.show,
         order.food,
         isNightOrdered,
+        getHallDiff,
         hallAmount,
         hallsTotal,
         showTotal,

@@ -31,7 +31,7 @@ export default function OrderTab() {
                             return (
                                 <p
                                     key={index}
-                                    className="font-['AvenirNextCyr'] font-[750] text-xl text-left"
+                                    className="font-avenir font-[750] text-xl text-left"
                                 >
                                     {line}
                                 </p>

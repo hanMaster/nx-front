@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import { useCart } from '@/providers/CartProvider';
-import CountAdjust from '../CountAdjust';
-import Link from 'next/link';
-import Image from 'next/image';
+import { useCart } from "@/providers/CartProvider";
+import CountAdjust from "../CountAdjust";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function FoodTab() {
     const { order, removeFromCart, setActiveTab, anketaInvalid } = useCart();
 
     const total = order.food.reduce(
         (acc, item) => acc + item.price * item.count,
-        0
+        0,
     );
 
     return (
@@ -54,7 +54,7 @@ export default function FoodTab() {
                                     />
                                 </svg>
 
-                                <h2 className="font-['ManegeDemo'] text-lg font-light md:text-4xl">
+                                <h2 className="font-manege text-lg font-light md:text-4xl">
                                     {i.title}
                                 </h2>
                                 <div className="flex gap-1 md:gap-[60px] items-center">
@@ -63,7 +63,7 @@ export default function FoodTab() {
                                         id={i.id}
                                         className="max-w-[100px] md:max-w-[200px]"
                                     />
-                                    <p className="font-[750] text-sm md:text-xl font-['AvenirNextCyr']">
+                                    <p className="font-[750] text-sm md:text-xl font-avenir">
                                         {i.price * i.count} руб.
                                     </p>
                                 </div>
@@ -74,7 +74,7 @@ export default function FoodTab() {
             )}
             <br />
             {total > 0 && (
-                <h2 className="font-['ManegeDemo'] text-lg font-light md:text-4xl text-center">
+                <h2 className="font-manege text-lg font-light md:text-4xl text-center">
                     Итого за еду: {total} руб.
                 </h2>
             )}

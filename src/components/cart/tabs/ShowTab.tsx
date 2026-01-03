@@ -72,14 +72,14 @@ export default function ShowTab() {
                                     />
                                 </svg>
 
-                                <h2 className="font-['ManegeDemo'] text-lg font-light md:text-4xl">
+                                <h2 className="font-manege text-lg font-light md:text-4xl">
                                     {i.title}
                                 </h2>
                                 <div className="flex gap-1 md:gap-[60px] items-center">
-                                    <p className="font-[750] text-sm md:text-xl font-['AvenirNextCyr']">
+                                    <p className="font-[750] text-sm md:text-xl font-avenir">
                                         {i.duration} мин
                                     </p>
-                                    <p className="font-[750] text-sm md:text-xl font-['AvenirNextCyr']">
+                                    <p className="font-[750] text-sm md:text-xl font-avenir">
                                         {i.price} руб.
                                     </p>
                                 </div>

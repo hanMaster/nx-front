@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useCart } from '@/providers/CartProvider';
-import HallTab from '@/components/cart/tabs/HallTab';
-import AnketaTab from '@/components/cart/tabs/AnketaTab';
-import ShowTab from '@/components/cart/tabs/ShowTab';
-import FoodTab from '@/components/cart/tabs/FoodTab';
-import OrderTab from '@/components/cart/tabs/OrderTab';
-import Link from 'next/link';
+import { useCart } from "@/providers/CartProvider";
+import HallTab from "@/components/cart/tabs/HallTab";
+import AnketaTab from "@/components/cart/tabs/AnketaTab";
+import ShowTab from "@/components/cart/tabs/ShowTab";
+import FoodTab from "@/components/cart/tabs/FoodTab";
+import OrderTab from "@/components/cart/tabs/OrderTab";
+import Link from "next/link";
 
 export default function CartPage() {
     const { cleanCart, getActiveTab, setActiveTab, tabClick } = useCart();
@@ -20,7 +20,7 @@ export default function CartPage() {
 
     return (
         <main className="md:container md:mx-auto pt-[85px]">
-            <section className="py-[20px] lg:py-[30px] bg-grey-light m-0 bg-[rgba(255,255,255,0.45)] md:bg-[unset] flex items-center flex-row justify-between text-xs leading-4 text-green md:text-lg lg:text-xl lg:leading-5">
+            <section className="py-5 lg:py-[30px] bg-grey-light m-0 bg-[rgba(255,255,255,0.45)] md:bg-[unset] flex items-center flex-row justify-between text-xs leading-4 text-green md:text-lg lg:text-xl lg:leading-5">
                 <ol className="flex">
                     <li>
                         <Link className="opacity-[0.75]" href="/">
@@ -28,7 +28,7 @@ export default function CartPage() {
                         </Link>
                     </li>
                     <li>
-                        <span className="opacity-1 before:mx-[12px] before:inline-block before:content-['/']">
+                        <span className="opacity-1 before:mx-3 before:inline-block before:content-['/']">
                             Корзина
                         </span>
                     </li>
@@ -41,7 +41,7 @@ export default function CartPage() {
                     <div className="tab-headers bg-[rgba(255,255,255,0.45)] md:bg-[unset]">
                         <div
                             className={`tab-header rounded-t-[20px] md:rounded-t-[40px] cursor-pointer ${
-                                activeTab === 1 ? 'active-tab' : ''
+                                activeTab === 1 ? "active-tab" : ""
                             }`}
                             onClick={() => tabClick(1)}
                         >
@@ -49,7 +49,7 @@ export default function CartPage() {
                         </div>
                         <div
                             className={`tab-header rounded-t-[20px] md:rounded-t-[40px] cursor-pointer ${
-                                activeTab === 2 ? 'active-tab' : ''
+                                activeTab === 2 ? "active-tab" : ""
                             }`}
                             onClick={() => tabClick(2)}
                         >
@@ -57,7 +57,7 @@ export default function CartPage() {
                         </div>
                         <div
                             className={`tab-header rounded-t-[20px] md:rounded-t-[40px] cursor-pointer ${
-                                activeTab === 3 ? 'active-tab' : ''
+                                activeTab === 3 ? "active-tab" : ""
                             }`}
                             onClick={() => tabClick(3)}
                         >
@@ -65,7 +65,7 @@ export default function CartPage() {
                         </div>
                         <div
                             className={`tab-header rounded-t-[20px] md:rounded-t-[40px] cursor-pointer ${
-                                activeTab === 4 ? 'active-tab' : ''
+                                activeTab === 4 ? "active-tab" : ""
                             }`}
                             onClick={() => tabClick(4)}
                         >
@@ -78,9 +78,11 @@ export default function CartPage() {
                     {activeTab === 4 && <FoodTab />}
                     {activeTab === 5 && <OrderTab />}
                 </div>
-                <div className="w-full lg:w-1/3 bg-[rgba(255,255,255,0.45)] md:rounded-[40px] md:border border-[rgba(92,112,78,0.25)] md:p-[30px] text-center md:text-left py-[40px] md:py-[20px]">
-                    <h4 className="font-['Cormorant_Infant'] text-2xl">Возникли вопросы?</h4>
-                    <div className="flex flex-col items-center justify-center md:items-start font-['AvenirNextCyr'] text-lg mb-[30px]">
+                <div className="w-full lg:w-1/3 bg-[rgba(255,255,255,0.45)] md:rounded-[40px] md:border border-[rgba(92,112,78,0.25)] md:p-[30px] text-center md:text-left py-10 md:py-5">
+                    <h4 className="font-cormorant text-2xl">
+                        Возникли вопросы?
+                    </h4>
+                    <div className="flex flex-col items-center justify-center md:items-start font-avenir text-lg mb-[30px]">
                         <span>Пишите нам в</span>
 
                         <a
@@ -89,13 +91,20 @@ export default function CartPage() {
                             rel="noreferrer"
                             className="font-bold flex items-center"
                         >
-                            <img width="48" height="48" src="/Telegram_Logo.svg" alt="Telegram" />
+                            <img
+                                width="48"
+                                height="48"
+                                src="/Telegram_Logo.svg"
+                                alt="Telegram"
+                            />
                             <span>&nbsp;&nbsp;Telegram</span>
                         </a>
                         <span>Мы с радостью поможем Вам сделать заказ</span>
                     </div>
-                    <h4 className="font-['Cormorant_Infant'] text-2xl">Вкусно</h4>
-                    <p className="font-['AvenirNextCyr'] text-lg mb-[30px]">Готовим только из свежих продуктов</p>
+                    <h4 className="font-cormorant text-2xl">Вкусно</h4>
+                    <p className="font-avenir text-lg mb-[30px]">
+                        Готовим только из свежих продуктов
+                    </p>
                 </div>
             </section>
         </main>
