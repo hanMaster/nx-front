@@ -50,7 +50,7 @@ export default function HowToConnect() {
                         <Image
                             width={624}
                             height={539}
-                            src="/img/oksana.png"
+                            src="/oks_footer.jpg"
                             alt="Оксана Авдейчик - организатор детских праздников в студиях Давай поиграем и Характер в Находке"
                             className="h-full w-full object-cover"
                             sizes="(max-width: 768px) 0vw, 50vw"

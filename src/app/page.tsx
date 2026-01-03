@@ -31,7 +31,7 @@ export default function Home() {
                 <Image
                     width={365}
                     height={517}
-                    src="/img/Oksana.jpg"
+                    src="/oks_hero.jpg"
                     alt="Оксана Авдейчик - организатор детских праздников в студиях Давай поиграем и Характер в Находке"
                     className="rounded-[40px]"
                     sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 365px"
