@@ -1,6 +1,14 @@
-import BreadCrumbs from '@/components/breadcrums';
-import HowToConnect from '@/components/how-to-connect';
-import { getVideo } from '../data/video';
+import BreadCrumbs from "@/components/breadcrums";
+import HowToConnect from "@/components/how-to-connect";
+import { getVideo } from "../data/video";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    other: {
+        "Content-Security-Policy":
+            "default-src 'self'; frame-src 'self' https://rutube.ru",
+    },
+};
 
 export default async function VideoPage() {
     const video = await getVideo();
@@ -23,11 +31,11 @@ export default async function VideoPage() {
                                 >
                                     <iframe
                                         style={{
-                                            position: 'absolute',
+                                            position: "absolute",
                                             top: 0,
                                             left: 0,
-                                            width: '100%',
-                                            height: '100%',
+                                            width: "100%",
+                                            height: "100%",
                                         }}
                                         width="560"
                                         height="315"
@@ -42,13 +50,13 @@ export default async function VideoPage() {
                             return (
                                 <div
                                     key={v.id}
-                                    style={{ aspectRatio: '16 / 9' }}
+                                    style={{ aspectRatio: "16 / 9" }}
                                 >
                                     <iframe
                                         width="100%"
                                         height="100%"
                                         src={`https://rutube.ru/play/embed/${v.videoId}`}
-                                        style={{ border: 'none' }}
+                                        style={{ border: "none" }}
                                         allow="clipboard-write; autoplay"
                                         allowFullScreen
                                     ></iframe>
