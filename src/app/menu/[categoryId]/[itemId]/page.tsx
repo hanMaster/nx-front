@@ -1,15 +1,15 @@
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { getCategories, getCategoryById, getItemById } from '@/app/data/menu';
-import MakeOrderSimple from '@/components/make-order-simple';
-import CategoryChanger from '@/components/CategoryChanger';
-import CartButton from '@/components/cart/CartButton';
-import Image from 'next/image';
-import type { Metadata } from 'next';
-import { ProductSchema, BreadcrumbSchema } from '@/components/StructuredData';
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { getCategories, getCategoryById, getItemById } from "@/app/data/menu";
+import MakeOrderSimple from "@/components/make-order-simple";
+import CategoryChanger from "@/components/CategoryChanger";
+import CartButton from "@/components/cart/CartButton";
+import Image from "next/image";
+import type { Metadata } from "next";
+import { ProductSchema, BreadcrumbSchema } from "@/components/StructuredData";
 
 export async function generateMetadata(
-    props: PageProps<'/menu/[categoryId]/[itemId]'>
+    props: PageProps<"/menu/[categoryId]/[itemId]">,
 ): Promise<Metadata> {
     const { categoryId, itemId } = await props.params;
     const category = await getCategoryById(+categoryId);
@@ -17,26 +17,30 @@ export async function generateMetadata(
 
     if (!category || !item) {
         return {
-            title: 'Товар не найден',
+            title: "Товар не найден",
         };
     }
 
     return {
         title: item.title,
-        description: item.description || `${item.title} из категории ${category.title} для детского праздника в Находке. Цена: ${item.price} руб.`,
+        description:
+            item.description ||
+            `${item.title} из категории ${category.title} для детского праздника в Находке. Цена: ${item.price} руб.`,
         alternates: {
             canonical: `https://igra-em.ru/menu/${categoryId}/${itemId}`,
         },
         openGraph: {
             title: `${item.title} - ${category.title}`,
-            description: item.description || `${item.title} для детского праздника в Находке`,
+            description:
+                item.description ||
+                `${item.title} для детского праздника в Находке`,
             images: [item.imageJpg],
         },
     };
 }
 
 export default async function ItemPage(
-    props: PageProps<'/menu/[categoryId]/[itemId]'>
+    props: PageProps<"/menu/[categoryId]/[itemId]">,
 ) {
     const { categoryId, itemId } = await props.params;
     const category = await getCategoryById(+categoryId);
@@ -52,12 +56,12 @@ export default async function ItemPage(
             <BreadcrumbSchema
                 items={[
                     {
-                        name: 'Главная',
-                        url: 'https://igra-em.ru/',
+                        name: "Главная",
+                        url: "https://igra-em.ru/",
                     },
                     {
-                        name: 'Меню',
-                        url: 'https://igra-em.ru/menu',
+                        name: "Меню",
+                        url: "https://igra-em.ru/menu",
                     },
                     {
                         name: category.title,
@@ -112,7 +116,7 @@ export default async function ItemPage(
                             <Image
                                 width={406}
                                 height={350}
-                                src={item.imageJpg}
+                                src={`/${item.imageJpg}`}
                                 alt={`${item.title} - ${category.title} для детского праздника с доставкой в Находке, цена ${item.price} руб.`}
                                 className="w-full flex-1 h-auto rounded-tr-[100px] rounded-bl-[100px] object-cover"
                                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -145,7 +149,7 @@ export default async function ItemPage(
                                 <p className="text-base mb-[30px]">
                                     {item.description
                                         ? item.description
-                                        : 'Это очень вкусно! Рекомендуем попробовать!'}
+                                        : "Это очень вкусно! Рекомендуем попробовать!"}
                                 </p>
                             </div>
                             <CartButton
@@ -154,7 +158,7 @@ export default async function ItemPage(
                                     title: item.title,
                                     price: item.price,
                                     imageWebp: item.imageWebp,
-                                    minOrder: item.minOrder
+                                    minOrder: item.minOrder,
                                 }}
                             />
                         </div>
@@ -164,7 +168,10 @@ export default async function ItemPage(
             <MakeOrderSimple />
             <ProductSchema
                 name={item.title}
-                description={item.description || `${item.title} из категории ${category.title} для детского праздника в Находке`}
+                description={
+                    item.description ||
+                    `${item.title} из категории ${category.title} для детского праздника в Находке`
+                }
                 image={`https://igra-em.ru${item.imageJpg}`}
                 price={item.price}
             />
