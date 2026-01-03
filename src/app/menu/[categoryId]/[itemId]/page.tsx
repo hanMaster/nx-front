@@ -116,7 +116,11 @@ export default async function ItemPage(
                             <Image
                                 width={406}
                                 height={350}
-                                src={`/${item.imageJpg}`}
+                                src={
+                                    item.imageJpg.includes("selcdn")
+                                        ? item.imageJpg
+                                        : `/${item.imageJpg}`
+                                }
                                 alt={`${item.title} - ${category.title} для детского праздника с доставкой в Находке, цена ${item.price} руб.`}
                                 className="w-full flex-1 h-auto rounded-tr-[100px] rounded-bl-[100px] object-cover"
                                 sizes="(max-width: 768px) 100vw, 50vw"
