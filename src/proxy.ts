@@ -9,11 +9,13 @@ export function proxy(request: NextRequest) {
         // Content Security Policy
         "Content-Security-Policy": [
             "default-src 'self'",
-            "script-src 'self' 'unsafe-eval' 'unsafe-inline'", // Next.js требует unsafe-eval и unsafe-inline
-            "style-src 'self' 'unsafe-inline' fonts.googleapis.com",
-            "img-src 'self' data: https: blob:",
+            "frame-src 'self' https://rutube.ru https://*.rutube.ru",
+            "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://mc.yandex.ru https://*.rutube.ru", // Next.js требует unsafe-eval и unsafe-inline
+            "style-src 'self' 'unsafe-inline' fonts.googleapis.com https://*.rutube.ru",
+            "img-src 'self' data: https: blob: https://mc.yandex.ru https://*.rutube.ru",
             "font-src 'self' data: fonts.gstatic.com",
-            "connect-src 'self' http://localhost:5001 https://102922.selcdn.ru",
+            "connect-src 'self' http://localhost:5001 https://102922.selcdn.ru https://mc.yandex.ru https://*.rutube.ru",
+            "media-src 'self' https://*.rutube.ru",
             "frame-ancestors 'none'",
             "base-uri 'self'",
             "form-action 'self' https://t.me",

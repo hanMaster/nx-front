@@ -7,23 +7,6 @@ const nextConfig: NextConfig = {
     images: {
         remotePatterns: [new URL("https://102922.selcdn.ru/ecomm/harakter/**")],
     },
-    headers: async () => [
-        {
-            source: "/(.*)",
-            headers: [
-                {
-                    key: "Content-Security-Policy",
-                    value: [
-                        "default-src 'self'",
-                        "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://mc.yandex.ru",
-                        "frame-src 'self' https://rutube.ru https://*.rutube.ru",
-                        "connect-src 'self' https://mc.yandex.ru",
-                        "img-src 'self' data: https://mc.yandex.ru",
-                    ].join("; "),
-                },
-            ],
-        },
-    ],
 };
 
 const withMDX = createMDX({
