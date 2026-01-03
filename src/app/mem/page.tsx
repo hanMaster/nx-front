@@ -1,8 +1,8 @@
-import HowToConnect from '@/components/how-to-connect';
-import Link from 'next/link';
-import { MDXRemote } from 'next-mdx-remote-client/rsc';
-import { getMem } from '../data/mem';
-import BreadCrumbs from '@/components/breadcrums';
+import HowToConnect from "@/components/how-to-connect";
+import Link from "next/link";
+import { MDXRemote } from "next-mdx-remote-client/rsc";
+import { getMem } from "../data/mem";
+import BreadCrumbs from "@/components/breadcrums";
 
 export default async function MemPage() {
     const markdown = await getMem();
@@ -15,7 +15,7 @@ export default async function MemPage() {
                 <h2 className="subtitle2">
                     Памятка визита в Давай поиграем и Характер
                 </h2>
-                <div className="prose px-2 prose-headings:mt-8 max-w-[1440px] prose-headings:font-semibold prose-headings:text-black prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg">
+                <div className="prose px-2 prose-headings:mt-8 max-w-[1440px] prose-headings:font-semibold prose-headings:text-black prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg prose-p:text-lg">
                     <MDXRemote source={markdown} />
                 </div>
                 <Link
