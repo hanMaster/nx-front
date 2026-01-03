@@ -9,14 +9,14 @@ const nextConfig: NextConfig = {
     },
     headers: async () => [
         {
-            source: "/:path*",
+            source: "/(.*)",
             headers: [
                 {
                     key: "Content-Security-Policy",
                     value: [
                         "default-src 'self'",
                         "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://mc.yandex.ru",
-                        "frame-src 'self' https://rutube.ru",
+                        "frame-src 'self' https://rutube.ru https://*.rutube.ru",
                         "connect-src 'self' https://mc.yandex.ru",
                         "img-src 'self' data: https://mc.yandex.ru",
                     ].join("; "),
