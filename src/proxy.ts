@@ -14,7 +14,7 @@ export function proxy(request: NextRequest) {
             "style-src 'self' 'unsafe-inline' fonts.googleapis.com https://*.rutube.ru",
             "img-src 'self' data: https: blob: https://mc.yandex.ru https://*.rutube.ru",
             "font-src 'self' data: fonts.gstatic.com",
-            "connect-src 'self' http://localhost:5001 https://102922.selcdn.ru https://mc.yandex.ru https://*.rutube.ru wss://mc.yandex.ru/solid.ws",
+            "connect-src 'self' http://localhost:5001 https://102922.selcdn.ru https://mc.yandex.ru https://mc.yandex.com https://*.rutube.ru wss://mc.yandex.ru/solid.ws",
             "media-src 'self' https://*.rutube.ru",
             "frame-ancestors 'none'",
             "base-uri 'self'",
