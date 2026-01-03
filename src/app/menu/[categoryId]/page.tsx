@@ -111,7 +111,7 @@ export default async function CategoryPage(
                                     <Image
                                         width={406}
                                         height={350}
-                                        src={item.imageJpg}
+                                        src={`/${item.imageJpg}`}
                                         alt={`${item.title} - ${category.title} для детского праздника с доставкой в Находке`}
                                         className="rounded-tr-[50px] rounded-bl-[50px] cursor-pointer"
                                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 20vw"
