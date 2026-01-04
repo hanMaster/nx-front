@@ -181,3 +181,159 @@ export function ServiceSchema({
         />
     );
 }
+
+interface EventProps {
+    name: string;
+    description: string;
+    startDate: string;
+    endDate?: string;
+    location: {
+        name: string;
+        address: string;
+    };
+    image?: string;
+    price?: number;
+    currency?: string;
+    organizer?: string;
+    eventStatus?: "EventScheduled" | "EventCancelled" | "EventPostponed";
+    eventAttendanceMode?: "OfflineEventAttendanceMode" | "OnlineEventAttendanceMode" | "MixedEventAttendanceMode";
+}
+
+export function EventSchema({
+    name,
+    description,
+    startDate,
+    endDate,
+    location,
+    image,
+    price,
+    currency = "RUB",
+    organizer = "ИП Авдейчик Оксана Николаевна",
+    eventStatus = "EventScheduled",
+    eventAttendanceMode = "OfflineEventAttendanceMode",
+}: EventProps) {
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        name,
+        description,
+        startDate,
+        ...(endDate && { endDate }),
+        eventStatus: `https://schema.org/${eventStatus}`,
+        eventAttendanceMode: `https://schema.org/${eventAttendanceMode}`,
+        location: {
+            "@type": "Place",
+            name: location.name,
+            address: {
+                "@type": "PostalAddress",
+                streetAddress: location.address,
+                addressLocality: "Находка",
+                addressRegion: "Приморский край",
+                addressCountry: "RU",
+            },
+        },
+        ...(image && { image }),
+        ...(price && {
+            offers: {
+                "@type": "Offer",
+                price,
+                priceCurrency: currency,
+                availability: "https://schema.org/InStock",
+                url: "https://igra-em.ru/new-year",
+            },
+        }),
+        organizer: {
+            "@type": "Organization",
+            name: organizer,
+            url: "https://igra-em.ru",
+        },
+        performer: {
+            "@type": "Organization",
+            name: "Детские студии Давай поиграем и Характер",
+        },
+    };
+
+    return (
+        <Script
+            id="event-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+    );
+}
+
+interface VideoObjectProps {
+    name: string;
+    description: string;
+    thumbnailUrl: string;
+    uploadDate: string;
+    contentUrl?: string;
+    embedUrl?: string;
+    duration?: string;
+}
+
+export function VideoObjectSchema({
+    name,
+    description,
+    thumbnailUrl,
+    uploadDate,
+    contentUrl,
+    embedUrl,
+    duration,
+}: VideoObjectProps) {
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        name,
+        description,
+        thumbnailUrl,
+        uploadDate,
+        ...(contentUrl && { contentUrl }),
+        ...(embedUrl && { embedUrl }),
+        ...(duration && { duration }),
+    };
+
+    return (
+        <Script
+            id="video-object-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+    );
+}
+
+interface VideoListProps {
+    videos: Array<{
+        name: string;
+        description: string;
+        thumbnailUrl: string;
+        uploadDate: string;
+        embedUrl: string;
+        duration?: string;
+    }>;
+}
+
+export function VideoListSchema({ videos }: VideoListProps) {
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        itemListElement: videos.map((video, index) => ({
+            "@type": "VideoObject",
+            position: index + 1,
+            name: video.name,
+            description: video.description,
+            thumbnailUrl: video.thumbnailUrl,
+            uploadDate: video.uploadDate,
+            embedUrl: video.embedUrl,
+            ...(video.duration && { duration: video.duration }),
+        })),
+    };
+
+    return (
+        <Script
+            id="video-list-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+    );
+}

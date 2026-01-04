@@ -2,6 +2,7 @@ import BreadCrumbs from "@/components/breadcrums";
 import HowToConnect from "@/components/how-to-connect";
 import { getVideo } from "../data/video";
 import type { Metadata } from 'next';
+import { VideoListSchema } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
     title: 'Видео',
@@ -19,8 +20,30 @@ export const metadata: Metadata = {
 export default async function VideoPage() {
     const video = await getVideo();
 
+    // Подготовка данных для VideoListSchema
+    const videoSchemaData = video.map((v, index) => {
+        const isYouTube = v.videoId.length === 11;
+        const embedUrl = isYouTube
+            ? `https://www.youtube.com/embed/${v.videoId}`
+            : `https://rutube.ru/play/embed/${v.videoId}`;
+        const thumbnailUrl = isYouTube
+            ? `https://img.youtube.com/vi/${v.videoId}/maxresdefault.jpg`
+            : `https://rutube.ru/api/video/${v.videoId}/thumbnail/`;
+
+        return {
+            name: `Видео детских праздников в студиях Давай поиграем и Характер ${index + 1}`,
+            description: 'Смотрите, как проходят праздники, программы с аниматорами, мастер-классы и шоу в детских студиях в Находке',
+            thumbnailUrl,
+            uploadDate: '2024-01-01',
+            embedUrl,
+        };
+    });
+
     return (
         <main className="md:container md:mx-auto pt-[85px]">
+            {videoSchemaData.length > 0 && (
+                <VideoListSchema videos={videoSchemaData} />
+            )}
             <BreadCrumbs pageTitle="Видео" />
 
             <h2 className="subtitle2">
