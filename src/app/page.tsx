@@ -1,20 +1,25 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import HowToConnect from '@/components/how-to-connect';
-import SliderHome from '@/components/slider-home';
-import type { Metadata } from 'next';
+import Link from "next/link";
+import Image from "next/image";
+import HowToConnect from "@/components/how-to-connect";
+import SliderHome from "@/components/slider-home";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: 'Детский праздник в Находке - студии Давай поиграем и Характер',
-    description: 'Организация детских праздников под ключ в Находке ⭐ День рождения ребенка, аниматоры, кейтеринг, аренда залов. Студии Давай поиграем и Характер ☎ +7(914)709-38-88',
+    title: "Детский праздник в Находке - студии Давай поиграем и Характер",
+    description:
+        "Организация детских праздников под ключ в Находке ⭐ День рождения ребенка, аниматоры, кейтеринг, аренда залов. Студии Давай поиграем и Характер ☎ +7(914)709-38-88",
     alternates: {
-        canonical: 'https://igra-em.ru',
+        canonical: "https://igra-em.ru",
     },
     openGraph: {
-        title: 'Детский праздник в Находке - организация под ключ',
-        description: 'Организация детских праздников под ключ ⭐ День рождения ребенка, аниматоры, кейтеринг, аренда залов в Находке',
-        url: 'https://igra-em.ru',
-        images: ['/oks_hero.jpg'],
+        title: "Детский праздник в Находке - организация под ключ",
+        description:
+            "Организация детских праздников под ключ ⭐ День рождения ребенка, аниматоры, кейтеринг, аренда залов в Находке",
+        url: "https://igra-em.ru",
+        images: ["/oks_hero.jpg"],
+    },
+    verification: {
+        google: "4fpT6dlbutHN1IGxsbIMZc6pGOAq0ftJL5kC6I7Mi-8",
     },
 };
 
@@ -72,7 +77,7 @@ export default function Home() {
                                 src="/img/davai_poigraem.png"
                                 alt="Детский клуб Давай поиграем - зал для проведения детских праздников и дней рождения в Находке"
                                 className="h-[275px] lg:h-[439px] xl:h-[539px] w-full object-cover first-left-image"
-                                style={{ width: 'auto' }}
+                                style={{ width: "auto" }}
                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 48vw, 50vw"
                                 priority
                                 placeholder="blur"
@@ -105,7 +110,7 @@ export default function Home() {
                                 src="/img/kharacter-big.jpeg"
                                 className="h-[275px] lg:h-[439px] xl:h-[539px] w-full object-cover first-right-image"
                                 alt="Студия вкуса Характер - банкетный зал для детских праздников с кейтерингом в Находке"
-                                style={{ width: 'auto' }}
+                                style={{ width: "auto" }}
                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 48vw, 50vw"
                                 placeholder="blur"
                                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAHAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
