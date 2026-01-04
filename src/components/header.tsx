@@ -70,7 +70,7 @@ export function Header() {
                                     width={18}
                                     height={20}
                                     src="/img/icon-2.png"
-                                    alt="Корзина"
+                                    alt="Корзина заказов - оформить заказ детского праздника в Находке"
                                 />
                                 <span className="absolute bottom-[-3px] right-[-3px] flex h-[23px] w-[23px] items-center justify-center rounded-[50%] bg-green text-xs font-medium leading-4 text-white">
                                     {getTotalItemsCount()}

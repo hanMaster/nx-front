@@ -21,6 +21,10 @@ export const metadata: Metadata = {
 export default function Home() {
     return (
         <main className="md:container md:mx-auto pt-[85px]">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-green mt-5 mb-8 px-4">
+                Организация детских праздников в Находке под ключ
+            </h1>
+
             <section className="flex flex-col gap-10 sm:flex-row lg:gap-6 mt-5 lg:mt-[60px] items-center justify-center px-8">
                 <p className="subtitle2 text-green text-left max-w-[630px] mb-4 mt-6">
                     Привет! <br />
@@ -59,11 +63,16 @@ export default function Home() {
                     Правила моих студий
                 </Link>
             </div>
+
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-green mt-16 mb-10 px-4">
+                Наши студии для детских праздников в Находке
+            </h2>
+
             <section className="flex flex-col gap-10 sm:flex-row lg:gap-6 mt-5 lg:mt-[60px] px-8">
                 <div className="sm:w-[48%]">
-                    <h1 className="title mb-5 lg:mb-[30px]">
-                        Клуб “Давай поиграем!”
-                    </h1>
+                    <h3 className="title mb-5 lg:mb-[30px]">
+                        Детский клуб "Давай поиграем"
+                    </h3>
                     <div className="relative mb-5 w-full rounded-t-[50%] lg:mb-[30px]">
                         <Link href="/davai-poigraem">
                             <Image
@@ -94,9 +103,9 @@ export default function Home() {
                     </p>
                 </div>
                 <div className="sm:w-[48%]">
-                    <h2 className="title mb-5 lg:mb-[30px]">
-                        Студия вкуса “Характер”
-                    </h2>
+                    <h3 className="title mb-5 lg:mb-[30px]">
+                        Студия вкуса "Характер"
+                    </h3>
                     <div className="relative mb-5 w-full rounded-t-[50%] lg:mb-[30px]">
                         <Link href="/kharacter">
                             <Image
@@ -125,6 +134,10 @@ export default function Home() {
                 </div>
             </section>
 
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-green mt-16 mb-10 px-4">
+                Полный комплекс услуг для детского праздника
+            </h2>
+
             <section className="flex flex-col lg:flex-row gap-5 lg:items-center justify-center lg:gap-6">
                 <div className="flex flex-col">
                     <div className="lg:flex lg:items-center lg:gap-[35px] xl:gap-[74px] mb-4">
@@ -133,37 +146,37 @@ export default function Home() {
                                 href="/booking"
                                 className="custom__btn border border-brown"
                             >
-                                Резерв студии
+                                Аренда зала для праздника
                             </Link>
                             <Link
                                 href="/heroes"
                                 className="custom__btn border border-brown"
                             >
-                                Герои и программы
+                                Аниматоры и программы
                             </Link>
                             <Link
                                 href="/menu"
                                 className="custom__btn border border-brown"
                             >
-                                Кейтеринг
+                                Детский кейтеринг
                             </Link>
                             <Link
                                 href="/masters"
                                 className="custom__btn border border-brown"
                             >
-                                Мастер-классы
+                                Мастер-классы для детей
                             </Link>
                             <Link
                                 href="/show"
                                 className="custom__btn border border-brown"
                             >
-                                Шоу
+                                Шоу-программы
                             </Link>
                             <Link
                                 href="/additions"
                                 className="custom__btn border border-brown"
                             >
-                                Дополнения
+                                Декор и дополнения
                             </Link>
                             <Link
                                 href="/new-year"
@@ -183,6 +196,57 @@ export default function Home() {
                     <a href="/cart" className="add-to-cart-food-btn">
                         СДЕЛАТЬ ЗАКАЗ
                     </a>
+                </div>
+            </section>
+
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-green mt-16 mb-10 px-4">
+                Почему родители выбирают студии "Давай поиграем" и "Характер"
+            </h2>
+
+            <section className="px-8 mb-16 max-w-[1200px] mx-auto">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-green">
+                    <div className="flex flex-col items-center text-center">
+                        <h3 className="text-xl font-bold mb-3">Организация под ключ</h3>
+                        <p className="text-lg">
+                            Аниматоры, кейтеринг, декор, шоу-программы — все услуги в одном месте.
+                            Вам не нужно искать разных подрядчиков.
+                        </p>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                        <h3 className="text-xl font-bold mb-3">Две уютные студии</h3>
+                        <p className="text-lg">
+                            Детский клуб с игровой зоной и банкетная студия с камином.
+                            Вместимость от 14 до 30 человек.
+                        </p>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                        <h3 className="text-xl font-bold mb-3">Опытные аниматоры</h3>
+                        <p className="text-lg">
+                            Профессиональные актеры с популярными персонажами.
+                            Более 50 программ для детей разного возраста.
+                        </p>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                        <h3 className="text-xl font-bold mb-3">Вкусный кейтеринг</h3>
+                        <p className="text-lg">
+                            Собственная кухня с разнообразным детским меню.
+                            Учитываем пожелания и ограничения по питанию.
+                        </p>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                        <h3 className="text-xl font-bold mb-3">Безопасность и чистота</h3>
+                        <p className="text-lg">
+                            Дезинфекция всех поверхностей перед каждым визитом.
+                            Мягкие полы, безопасное оборудование.
+                        </p>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                        <h3 className="text-xl font-bold mb-3">Доступные цены</h3>
+                        <p className="text-lg">
+                            Аренда зала от 7000₽/час, аниматоры от 6000₽/час.
+                            Прозрачное ценообразование без скрытых платежей.
+                        </p>
+                    </div>
                 </div>
             </section>
 

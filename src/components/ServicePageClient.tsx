@@ -26,7 +26,7 @@ export default function ServicePageClient({ services, alt, path }: ServicePageCl
                         width={20}
                         height={20}
                         src="/img/search.svg"
-                        alt="Поиск"
+                        alt="Поиск услуг для детского праздника"
                         className="absolute left-2.5 top-[13px]"
                     />
                     <input
