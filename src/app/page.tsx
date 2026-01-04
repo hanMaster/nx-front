@@ -2,6 +2,21 @@ import Link from 'next/link';
 import Image from 'next/image';
 import HowToConnect from '@/components/how-to-connect';
 import SliderHome from '@/components/slider-home';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Главная',
+    description: 'Детские студии Давай поиграем и Характер в Находке. Организация детских праздников, дней рождения, кейтеринг, аниматоры, мастер-классы и шоу программы. Аренда залов для мероприятий.',
+    alternates: {
+        canonical: 'https://igra-em.ru',
+    },
+    openGraph: {
+        title: 'Детские студии Давай поиграем и Характер в Находке',
+        description: 'Организация незабываемых детских праздников и дней рождения. Кейтеринг, аниматоры, мастер-классы, аренда залов.',
+        url: 'https://igra-em.ru',
+        images: ['/oks_hero.jpg'],
+    },
+};
 
 export default function Home() {
     return (

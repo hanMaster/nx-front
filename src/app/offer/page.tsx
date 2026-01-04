@@ -1,4 +1,14 @@
 import BreadCrumbs from '@/components/breadcrums';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Договор оферты',
+    description: 'Договор публичной оферты на оказание услуг по организации детских мероприятий ИП Авдейчик Оксана Николаевна. Условия сотрудничества, права и обязанности сторон.',
+    robots: {
+        index: false,
+        follow: true,
+    },
+};
 
 export default function OfferPage() {
     return (

@@ -1,6 +1,21 @@
 import BreadCrumbs from '@/components/breadcrums';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Новый год',
+    description: 'Новогодняя ночевка в детском клубе Давай поиграем в Находке - волшебная ночь перед Новым годом 2026. Дед Мороз, подарки, праздничная программа, ужин и завтрак. 18 часов волшебства для 10 детей за 12000 руб.',
+    alternates: {
+        canonical: 'https://igra-em.ru/new-year',
+    },
+    openGraph: {
+        title: 'Новогодняя ночевка в Давай поиграем - Новый год 2026 в Находке',
+        description: 'Сказочная ночь перед Новым годом с Дедом Морозом, подарками и праздничной программой. 18 часов волшебства.',
+        url: 'https://igra-em.ru/new-year',
+        images: ['/new-year/ny-header.jpg'],
+    },
+};
 
 export default function NewYear() {
     return (

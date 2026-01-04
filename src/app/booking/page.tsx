@@ -1,6 +1,20 @@
 import BreadCrumbs from '@/components/breadcrums';
 import HowToConnect from '@/components/how-to-connect';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Резерв студии',
+    description: 'Бронирование детских студий Давай поиграем и Характер в Находке. Резерв зала для праздника на 2-3 часа. Игровое оборудование, чистота, климат-контроль. Работа только по предварительной записи.',
+    alternates: {
+        canonical: 'https://igra-em.ru/booking',
+    },
+    openGraph: {
+        title: 'Бронирование залов для детских праздников в Находке',
+        description: 'Резерв студий Давай поиграем и Характер. Чистота, безопасность, комфорт для детей и взрослых.',
+        url: 'https://igra-em.ru/booking',
+    },
+};
 
 export default function BookingPage() {
     return (

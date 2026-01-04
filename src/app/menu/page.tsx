@@ -3,6 +3,20 @@ import MakeOrderSimple from '@/components/make-order-simple';
 import { getCategories } from '../data/menu';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Меню',
+    description: 'Кейтеринг для детских праздников в Находке - доставка готовых блюд в студии Давай поиграем и Характер. Закуски, горячие блюда, десерты, напитки. Заказ еды для детского дня рождения.',
+    alternates: {
+        canonical: 'https://igra-em.ru/menu',
+    },
+    openGraph: {
+        title: 'Меню кейтеринга для детских праздников в Находке',
+        description: 'Разнообразное меню для детских мероприятий. Закуски, горячее, десерты, напитки с доставкой.',
+        url: 'https://igra-em.ru/menu',
+    },
+};
 
 export default async function MenuPage() {
     const categories = await getCategories();

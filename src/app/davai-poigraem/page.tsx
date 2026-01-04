@@ -3,6 +3,21 @@ import HowToConnect from '@/components/how-to-connect';
 import Image from 'next/image';
 import { getClubImages } from '../data/gallery';
 import ChooseHall from '@/components/ChooseHall';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Клуб Давай поиграем',
+    description: 'Детский клуб Давай поиграем в Находке - аренда игрового зала для детских праздников и дней рождения. Вместимость до 14 детей, игровое оборудование, чистота и безопасность. Резерв зала от 7000 руб/час.',
+    alternates: {
+        canonical: 'https://igra-em.ru/davai-poigraem',
+    },
+    openGraph: {
+        title: 'Клуб Давай поиграем - аренда зала для детских праздников в Находке',
+        description: 'Уютный детский клуб с игровым оборудованием для проведения праздников. Вместимость до 14 детей, 7000 руб/час.',
+        url: 'https://igra-em.ru/davai-poigraem',
+        images: ['/img/davai_poigraem.png'],
+    },
+};
 
 export default async function DavaiPoigraemPage() {
     const images = await getClubImages();

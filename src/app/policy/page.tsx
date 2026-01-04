@@ -1,4 +1,14 @@
 import BreadCrumbs from '@/components/breadcrums';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Политика конфиденциальности',
+    description: 'Политика конфиденциальности сайта igra-em.ru - порядок обработки персональных данных пользователей в соответствии с законодательством РФ.',
+    robots: {
+        index: false,
+        follow: true,
+    },
+};
 
 export default function PolicyPage() {
     return (

@@ -7,7 +7,16 @@ import ChooseHall from '@/components/ChooseHall';
 
 export const metadata: Metadata = {
     title: 'Студия Характер',
-    description: 'Отличное место для проведения детских праздников',
+    description: 'Студия вкуса Характер в Находке - банкетный зал для детских праздников с кейтерингом. Вместимость до 30 человек, камин, проектор, игровая зона. Резерв студии от 7000 руб/час.',
+    alternates: {
+        canonical: 'https://igra-em.ru/kharacter',
+    },
+    openGraph: {
+        title: 'Студия Характер - банкетный зал для детских праздников в Находке',
+        description: 'Стильная студия для проведения праздников с банкетом. Вместимость до 30 человек, камин, проектор, 7000 руб/час.',
+        url: 'https://igra-em.ru/kharacter',
+        images: ['/img/kharacter-big.jpeg'],
+    },
 };
 
 export default async function DavaiPoigraemPage() {

@@ -2,6 +2,20 @@ import HowToConnect from '@/components/how-to-connect';
 import { getMasters } from '../data/services';
 import BreadCrumbs from '@/components/breadcrums';
 import ServicePageClient from '@/components/ServicePageClient';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Мастер-классы',
+    description: 'Детские мастер-классы в Находке - творческие занятия для праздников и дней рождения. Кулинарные, художественные и развивающие мастер-классы. Стоимость зависит от количества участников.',
+    alternates: {
+        canonical: 'https://igra-em.ru/masters',
+    },
+    openGraph: {
+        title: 'Мастер-классы для детей в Находке - творческие занятия',
+        description: 'Увлекательные мастер-классы для детских праздников. Кулинария, творчество, развитие.',
+        url: 'https://igra-em.ru/masters',
+    },
+};
 
 export default async function MastersPage() {
     const data = await getMasters();

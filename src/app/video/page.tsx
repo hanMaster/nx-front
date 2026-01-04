@@ -1,6 +1,20 @@
 import BreadCrumbs from "@/components/breadcrums";
 import HowToConnect from "@/components/how-to-connect";
 import { getVideo } from "../data/video";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Видео',
+    description: 'Видео о детских студиях Давай поиграем и Характер в Находке. Смотрите, как проходят праздники, программы с аниматорами, мастер-классы и шоу в наших студиях.',
+    alternates: {
+        canonical: 'https://igra-em.ru/video',
+    },
+    openGraph: {
+        title: 'Видео детских праздников в студиях Давай поиграем и Характер',
+        description: 'Видеообзор наших студий и праздников. Посмотрите, как проходят мероприятия.',
+        url: 'https://igra-em.ru/video',
+    },
+};
 
 export default async function VideoPage() {
     const video = await getVideo();

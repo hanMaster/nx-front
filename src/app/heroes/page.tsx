@@ -2,6 +2,20 @@ import HowToConnect from '@/components/how-to-connect';
 import { getHeroes } from '../data/services';
 import BreadCrumbs from '@/components/breadcrums';
 import ServicePageClient from '@/components/ServicePageClient';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Герои и программы',
+    description: 'Аниматоры и ведущие для детских праздников в Находке. Программы на любую тематику, костюмированные персонажи, работа с аппаратурой. От 6000 руб/час. Выезд на дом или в студиях Давай поиграем и Характер.',
+    alternates: {
+        canonical: 'https://igra-em.ru/heroes',
+    },
+    openGraph: {
+        title: 'Аниматоры и герои для детских праздников в Находке',
+        description: 'Профессиональные аниматоры и ведущие. Тематические программы, костюмы персонажей. От 6000 руб/час.',
+        url: 'https://igra-em.ru/heroes',
+    },
+};
 
 export default async function HeroesPage() {
     const data = await getHeroes();

@@ -1,5 +1,19 @@
 import BreadCrumbs from '@/components/breadcrums';
 import SliderRazvivalochka from '@/components/slider-razvivalochka';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Развивалочкаnhk',
+    description: 'Студия раннего развития детей Развивалочкаnhk в Находке. Занятия по вторникам и четвергам в 10:30. Комплексное развитие: моторика, речь, творчество, социализация. Группы до 8 детей, абонементная система.',
+    alternates: {
+        canonical: 'https://igra-em.ru/razvivalochkanhk',
+    },
+    openGraph: {
+        title: 'Развивалочкаnhk - студия раннего развития детей в Находке',
+        description: 'Раннее развитие детей по вторникам и четвергам. Творчество, моторика, речь, социализация в группах до 8 человек.',
+        url: 'https://igra-em.ru/razvivalochkanhk',
+    },
+};
 
 export default function Razvivalochkanhk() {
     return (

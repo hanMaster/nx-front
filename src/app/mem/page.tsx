@@ -3,6 +3,16 @@ import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote-client/rsc";
 import { getMem } from "../data/mem";
 import BreadCrumbs from "@/components/breadcrums";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Памятка',
+    description: 'Правила и памятка для посещения детских студий Давай поиграем и Характер в Находке. Важная информация перед визитом, требования, рекомендации для гостей.',
+    robots: {
+        index: false,
+        follow: true,
+    },
+};
 
 export default async function MemPage() {
     const markdown = await getMem();
